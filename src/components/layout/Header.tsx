@@ -55,32 +55,32 @@ export const Header: React.FC = () => {
               onClick={handleLinkClick}
               className="flex items-center space-x-3 focus:outline-none hover:scale-105 transition-transform duration-200"
             >
-              {/* Logo Image */}
+              {/* Logo Image - Use import.meta.env.BASE_URL for proper GitHub Pages path */}
               <div className="flex-shrink-0">
                 <img
-                  src="/logo.png"
+                  src={import.meta.env.BASE_URL + "logo.png"}
                   alt="Ancient Ayurveda Logo"
                   className="h-12 w-12 object-contain"
                   onError={(e) => {
-                    // Fallback to text logo if image fails to load
+                    // Fallback to gradient logo if image fails to load
                     e.currentTarget.style.display = "none";
-                    const textLogo = e.currentTarget
+                    const fallbackLogo = e.currentTarget
                       .nextElementSibling as HTMLElement;
-                    if (textLogo) textLogo.style.display = "flex";
+                    if (fallbackLogo) fallbackLogo.style.display = "flex";
                   }}
                 />
-                {/* Fallback Text Logo */}
+                {/* Fallback Gradient Logo */}
                 <div className="h-12 w-12 bg-gradient-to-br from-green-600 to-emerald-600 rounded-full hidden items-center justify-center text-white font-bold text-lg shadow-sm">
-                  A
+                  🌿
                 </div>
               </div>
 
               {/* Brand Text */}
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-green-600 leading-none">
+                <span className="text-xl font-bold text-green-600 leading-none font-heading">
                   Ancient Ayurveda
                 </span>
-                <span className="text-xs text-gray-500 leading-none hidden sm:block">
+                <span className="text-xs text-gray-500 leading-none hidden sm:block font-body">
                   Dr. Niyati Patel
                 </span>
               </div>
