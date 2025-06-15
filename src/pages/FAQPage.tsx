@@ -6,316 +6,249 @@ import { PageTransition } from "../components/ui/PageTransition";
 import { ChevronDown, ChevronUp, Phone, MessageCircle } from "lucide-react";
 
 export const FAQPage: React.FC = () => {
-  const [openItems, setOpenItems] = useState<Set<string>>(new Set());
+  const [openItems, setOpenItems] = useState<number[]>([]);
 
   const handleLinkClick = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   };
 
-  const toggleItem = (id: string) => {
-    const newOpenItems = new Set(openItems);
-    if (newOpenItems.has(id)) {
-      newOpenItems.delete(id);
-    } else {
-      newOpenItems.add(id);
-    }
-    setOpenItems(newOpenItems);
+  const toggleItem = (index: number) => {
+    setOpenItems((prev) =>
+      prev.includes(index)
+        ? prev.filter((item) => item !== index)
+        : [...prev, index]
+    );
   };
 
   const faqCategories = [
     {
-      category: "General Questions",
-      questions: [
+      category: "General Ayurveda Questions",
+      faqs: [
         {
           question: "What is Ayurveda and how can it help me?",
           answer:
-            "Ayurveda is a 5,000-year-old system of natural healing from India that focuses on treating the root cause of health issues, not just symptoms. It works by balancing your unique constitution (dosha) through personalized treatments, diet, lifestyle changes, and natural therapies. Dr. Niyati uses traditional diagnostic methods like pulse reading to create customized wellness plans that address your specific health concerns.",
+            "Ayurveda is a 5,000-year-old holistic healing system from India that focuses on balancing mind, body, and spirit. It helps by identifying your unique constitution (Prakriti) and current imbalances (Vikriti), then providing personalized treatments including diet, lifestyle recommendations, herbal medicines, and therapies to restore optimal health naturally.",
         },
         {
-          question: "Is Dr. Niyati qualified to practice Ayurveda?",
+          question: "Is Dr. Niyati Patel qualified to practice Ayurveda?",
           answer:
-            "Yes, Dr. Niyati Patel holds a Bachelor of Ayurvedic Medicine & Surgery (BAMS) from Gujarat Ayurved University in India and has over 15 years of clinical experience. She is fully qualified to practice traditional Ayurveda and maintains professional indemnity insurance in the UK.",
+            "Yes, Dr. Niyati Patel holds a BAMS degree (Bachelor of Ayurvedic Medicine and Surgery) and has over 15 years of clinical experience. She is trained in traditional diagnostic methods including pulse diagnosis and constitution analysis, with specialized expertise in women's health and pregnancy care.",
         },
         {
-          question: "Are Ayurvedic treatments safe?",
+          question: "How is Ayurvedic treatment different from conventional medicine?",
           answer:
-            "When practiced by qualified practitioners like Dr. Niyati, Ayurveda is very safe. All treatments are natural and personalized to your constitution. Dr. Niyati will discuss any medications you're taking and ensure treatments complement your existing healthcare. Always continue any prescribed medical treatments unless advised otherwise by your GP.",
-        },
-        {
-          question: "How is Ayurveda different from conventional medicine?",
-          answer:
-            "Ayurveda takes a holistic approach, treating you as a whole person rather than just addressing symptoms. It focuses on prevention and treating root causes through natural methods. While conventional medicine is excellent for acute conditions and emergencies, Ayurveda excels at chronic conditions, preventive care, and overall wellness optimization.",
-        },
-        {
-          question: "Can Ayurveda work alongside my current medical treatment?",
-          answer:
-            "Absolutely! Ayurveda is complementary and can work alongside conventional medicine. Dr. Niyati will ask about your current medications and treatments to ensure everything works harmoniously. Never stop prescribed medications without consulting your GP first.",
-        },
-      ],
+            "Ayurveda treats the root cause rather than just symptoms, focusing on prevention and holistic wellness. It uses natural remedies, considers your unique constitution, and integrates physical, mental, and spiritual aspects of health. It can complement conventional medicine but works differently by addressing the whole person.",
+        }
+      ]
     },
     {
-      category: "Booking & Scheduling",
-      questions: [
-        {
-          question: "How do I book an appointment?",
-          answer:
-            "You can book by calling +44 7778 147840, WhatsApping us, or filling out our contact form. We respond within 2 hours during business hours. We'll discuss your needs and schedule a convenient time for your consultation or treatment.",
-        },
-        {
-          question: "Do you offer home visits?",
-          answer:
-            "Yes! Home visits are our specialty. We serve Neasden, Wembley, Harrow, Kingsbury, Dollis Hill, Willesden, Cricklewood, Brent Cross, and nearby North West London areas with no travel charge. Small travel charges may apply for extended areas.",
-        },
-        {
-          question: "What about online consultations?",
-          answer:
-            "We offer comprehensive online consultations UK-wide via secure video calls. These are perfect for initial consultations, follow-ups, dietary guidance, lifestyle coaching, and when physical treatments aren't needed. Many clients prefer the convenience of online sessions.",
-        },
-        {
-          question: "How far in advance should I book?",
-          answer:
-            "We recommend booking 3-7 days in advance, especially for home visits. However, we often have same-day or next-day availability for urgent needs. Contact us as soon as possible to secure your preferred time slot.",
-        },
-        {
-          question: "What's your cancellation policy?",
-          answer:
-            "We require 24 hours notice for cancellations to avoid fees. Same-day cancellations may incur a 50% service fee. We understand emergencies happen and will work with you on a case-by-case basis.",
-        },
-      ],
-    },
-    {
-      category: "Treatment Questions",
-      questions: [
+      category: "Consultations & Appointments",
+      faqs: [
         {
           question: "What happens during an initial consultation?",
           answer:
-            "Your 90-minute initial consultation includes a comprehensive health history, traditional pulse diagnosis (Nadi Pariksha), constitution analysis (Prakriti assessment), lifestyle review, and creation of your personalized treatment plan. You'll receive detailed recommendations for diet, lifestyle, and any follow-up treatments needed.",
+            "Your 90-minute initial consultation includes a comprehensive health history review, traditional pulse diagnosis, constitution analysis, examination of current imbalances, and creation of a personalized treatment plan with diet, lifestyle, and herbal recommendations tailored specifically for you.",
         },
         {
-          question: "What should I expect during Ayurvedic massage?",
+          question: "Do you offer home visits in my area?",
           answer:
-            "Ayurvedic massages use warm herbal oils chosen for your constitution. The treatment is deeply relaxing and therapeutic, focusing on improving circulation, releasing tension, and balancing your energy. Sessions include consultation, treatment, and post-treatment guidance. Please wear comfortable clothing that you don't mind getting oil on.",
+            "We provide home visits primarily in North West London including Neasden, Wembley, Harrow, Kingsbury, Dollis Hill, Cricklewood, and surrounding areas with no travel charge. For other London areas, a small travel fee may apply. We also offer online consultations throughout the UK.",
         },
-        {
-          question: "How often should I have treatments?",
-          answer:
-            "This depends on your individual needs and goals. Acute issues might need weekly treatments initially, while maintenance wellness might be monthly. Dr. Niyati will recommend a treatment schedule during your consultation based on your specific situation and goals.",
-        },
-        {
-          question: "Are there any side effects?",
-          answer:
-            "Ayurvedic treatments typically have minimal side effects when performed correctly. You might experience temporary detox symptoms like mild fatigue or increased urination as your body eliminates toxins. Any reactions are usually mild and short-lived. Dr. Niyati will prepare you for what to expect.",
-        },
-        {
-          question: "What should I do before and after treatment?",
-          answer:
-            "Before treatment: eat lightly, arrive clean and relaxed, wear comfortable clothing. After treatment: rest for a few hours, drink warm water, avoid heavy meals, cold drinks, and strenuous activity. Detailed pre and post-treatment guidelines will be provided for each specific treatment.",
-        },
-      ],
-    },
-    {
-      category: "Pregnancy & Women's Health",
-      questions: [
-        {
-          question: "Is Ayurveda safe during pregnancy?",
-          answer:
-            "Yes, when practiced by qualified practitioners. Dr. Niyati specializes in pregnancy care and uses safe, gentle treatments specifically designed for expecting mothers. All treatments are modified for pregnancy safety. The Garbhasanskar program provides comprehensive prenatal support using traditional wisdom.",
-        },
-        {
-          question: "What is Garbhasanskar?",
-          answer:
-            "Garbhasanskar is a traditional Ayurvedic prenatal program that supports both mother and baby's physical, mental, and spiritual development during pregnancy. It includes nutrition guidance, gentle treatments, meditation practices, and lifestyle recommendations designed to promote optimal pregnancy outcomes.",
-        },
-        {
-          question: "Can Ayurveda help with menstrual problems?",
-          answer:
-            "Absolutely! Ayurveda excels at addressing menstrual irregularities, PCOS, PMS, and hormonal imbalances through natural methods. Treatment typically includes dietary changes, herbal support, lifestyle modifications, and specific treatments to restore hormonal balance naturally.",
-        },
-        {
-          question: "What about menopause support?",
-          answer:
-            "Ayurveda offers excellent natural support for menopause symptoms including hot flashes, mood changes, sleep issues, and energy fluctuations. Treatment focuses on nourishing the body during this transition using herbs, diet, lifestyle practices, and gentle treatments.",
-        },
-      ],
-    },
-    {
-      category: "Costs & Packages",
-      questions: [
         {
           question: "How much do consultations cost?",
           answer:
-            "Initial consultations are £180 for 90 minutes, follow-up consultations are £90 for 45 minutes. This includes comprehensive assessment, personalized treatment plan, and detailed recommendations. Online consultations are the same price as in-person consultations.",
-        },
-        {
-          question: "What about treatment prices?",
-          answer:
-            "Treatment prices vary by service: Therapeutic massages from £85-150, Ayurvedic facials from £85-110, pregnancy care from £100-150. Package deals offer better value for multiple treatments. Visit our Services page for complete pricing information.",
-        },
-        {
-          question: "Do you offer package deals?",
-          answer:
-            "Yes! We offer several wellness packages that combine consultations and treatments at discounted rates. Popular packages include the Stress Relief Package (£350 for 3 sessions) and Women's Wellness Package (£500 for 4 sessions). Packages provide better value and comprehensive care.",
-        },
-        {
-          question: "What payment methods do you accept?",
-          answer:
-            "We accept bank transfers, PayPal, and cash payments. Payment is required before or on the day of service. For package programs, we can arrange payment plans if needed. We provide receipts that many insurance providers accept for reimbursement.",
-        },
-      ],
+            "Initial consultations are £180 for 90 minutes, and follow-up consultations are £90 for 45 minutes. This includes your personalized treatment plan, dietary recommendations, and herbal medicine prescriptions if needed. Home visits in our primary service areas have no additional travel charges.",
+        }
+      ]
     },
     {
-      category: "Results & Expectations",
-      questions: [
+      category: "Treatment & Services",
+      faqs: [
         {
-          question: "How quickly will I see results?",
+          question: "What conditions can Ayurveda help with?",
           answer:
-            "This varies by individual and condition. Some people feel immediate benefits like reduced stress and better sleep. For chronic conditions, significant improvements typically occur within 4-6 weeks of regular treatment. Dr. Niyati will set realistic expectations during your consultation.",
+            "Ayurveda can help with many conditions including digestive issues, stress and anxiety, hormonal imbalances, skin problems, arthritis, diabetes management, sleep disorders, chronic fatigue, menstrual irregularities, pregnancy support, and general wellness optimization.",
         },
         {
-          question: "What can I do to maximize results?",
+          question: "Are the herbal medicines safe?",
           answer:
-            "Follow the personalized lifestyle and dietary recommendations provided. Consistency with treatments and home practices significantly improves outcomes. Dr. Niyati provides detailed guidance to support your healing journey.",
+            "Yes, all herbal medicines are prescribed based on your individual constitution and current health status. Dr. Patel uses traditional formulations with high-quality, tested herbs. However, it's important to inform her about any current medications or health conditions to ensure safe, personalized treatment.",
         },
         {
-          question: "Do I need to continue treatments long-term?",
+          question: "How long does it take to see results?",
           answer:
-            "Not necessarily. Initial intensive treatment often resolves acute issues. For chronic conditions or optimal wellness, periodic maintenance treatments are beneficial. Dr. Niyati will create a sustainable long-term plan based on your needs and goals.",
-        },
-      ],
+            "Results vary depending on the condition and individual response. Some people notice improvements in energy and digestion within 1-2 weeks, while chronic conditions may take 3-6 months for significant changes. Ayurveda works gradually to create lasting, sustainable health improvements.",
+        }
+      ]
     },
+    {
+      category: "Pregnancy & Women's Health",
+      faqs: [
+        {
+          question: "Is Ayurvedic treatment safe during pregnancy?",
+          answer:
+            "Yes, Dr. Patel specializes in pregnancy care and Garbhasanskar programs. All treatments are specifically adapted for pregnancy safety. Prenatal Ayurveda can help with morning sickness, energy levels, emotional balance, and preparing the body for childbirth using gentle, traditional methods.",
+        },
+        {
+          question: "What is the Garbhasanskar program?",
+          answer:
+            "Garbhasanskar is a traditional Ayurvedic prenatal program focusing on the physical, mental, and spiritual development of both mother and baby. It includes monthly consultations, pregnancy-safe treatments, nutritional guidance, stress management, and birth preparation over the course of pregnancy.",
+        },
+        {
+          question: "Can Ayurveda help with hormonal imbalances?",
+          answer:
+            "Absolutely. Dr. Patel has extensive experience treating hormonal imbalances including PCOS, irregular periods, menopause symptoms, and fertility issues. Ayurvedic treatments work to restore natural hormonal balance through diet, herbs, lifestyle modifications, and stress management techniques.",
+        }
+      ]
+    },
+    {
+      category: "Online Consultations",
+      faqs: [
+        {
+          question: "How effective are online consultations?",
+          answer:
+            "Online consultations are highly effective for Ayurvedic assessment. Dr. Patel can perform constitution analysis, review symptoms, provide dietary guidance, and prescribe herbal treatments via video call. Pulse diagnosis can be taught for self-assessment, and detailed questionnaires help gather comprehensive health information.",
+        },
+        {
+          question: "What do I need for an online consultation?",
+          answer:
+            "You'll need a stable internet connection, a device with camera and microphone (computer, tablet, or smartphone), a quiet private space, and any recent medical reports if relevant. Dr. Patel will send preparation guidelines and health questionnaires before your appointment.",
+        },
+        {
+          question: "Can I get herbal medicines through online consultations?",
+          answer:
+            "Yes, Dr. Patel can prescribe herbal medicines during online consultations. She works with reputable suppliers who can ship high-quality Ayurvedic herbs and formulations directly to your address throughout the UK, ensuring you receive the same quality treatments as in-person visits.",
+        }
+      ]
+    }
   ];
 
   return (
     <PageTransition>
       <div className="min-h-screen py-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Hero Section - Clean */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          {/* Hero Section */}
+          <div className="text-center mb-16 animate-fadeInDown">
+            <h1 className="text-hero mb-6">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Find answers to common questions about Ayurvedic treatments, booking,
-              and what to expect from your wellness journey with Dr. Niyati Patel
+            <p className="text-body-large text-gray-600 max-w-3xl mx-auto">
+              Find answers to common questions about Ayurvedic treatments,
+              consultations, and Dr. Niyati Patel's services
             </p>
           </div>
 
-          {/* FAQ Categories - Clean */}
-          <div className="space-y-8">
+          {/* FAQ Categories */}
+          <div className="space-y-12">
             {faqCategories.map((category, categoryIndex) => (
-              <Card key={categoryIndex} className="p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              <div key={categoryIndex} className="animate-fadeInUp">
+                <h2 className="text-display mb-8 text-center">
                   {category.category}
                 </h2>
+                
                 <div className="space-y-4">
-                  {category.questions.map((item, index) => {
-                    const itemId = `${categoryIndex}-${index}`;
-                    const isOpen = openItems.has(itemId);
+                  {category.faqs.map((faq, faqIndex) => {
+                    const globalIndex = categoryIndex * 100 + faqIndex;
+                    const isOpen = openItems.includes(globalIndex);
+                    
                     return (
-                      <div
-                        key={index}
-                        className="border border-gray-200 rounded-lg"
-                      >
+                      <Card key={faqIndex} className="overflow-hidden">
                         <button
-                          onClick={() => toggleItem(itemId)}
-                          className="w-full text-left p-4 flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset hover:scale-[1.01] transition-transform duration-200"
+                          onClick={() => toggleItem(globalIndex)}
+                          className="w-full p-6 text-left hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
                         >
-                          <span className="font-semibold text-gray-900 pr-4">
-                            {item.question}
-                          </span>
-                          {isOpen ? (
-                            <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                          ) : (
-                            <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                          )}
+                          <div className="flex justify-between items-center">
+                            <h3 className="text-h3 pr-8">
+                              {faq.question}
+                            </h3>
+                            {isOpen ? (
+                              <ChevronUp className="w-5 h-5 text-green-600 flex-shrink-0" />
+                            ) : (
+                              <ChevronDown className="w-5 h-5 text-green-600 flex-shrink-0" />
+                            )}
+                          </div>
                         </button>
+                        
                         {isOpen && (
-                          <div className="px-4 pb-4">
-                            <p className="text-gray-600 leading-relaxed">
-                              {item.answer}
+                          <div className="px-6 pb-6">
+                            <p className="text-body text-gray-700 leading-relaxed">
+                              {faq.answer}
                             </p>
                           </div>
                         )}
-                      </div>
+                      </Card>
                     );
                   })}
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
 
-          {/* Still Have Questions - Clean */}
-          <Card className="p-8 mt-12 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Still Have Questions?
-            </h2>
-            <p className="text-gray-600 mb-8">
-              We're here to help! Contact Dr. Niyati directly for personalized
-              answers to your questions.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+447778147840">
-                <Button size="lg" variant="primary" className="hover:scale-105 transition-transform duration-200">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Call: +44 7778 147840
-                </Button>
-              </a>
-              <a
-                href="https://wa.me/447778147840"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button size="lg" variant="outline" className="hover:scale-105 transition-transform duration-200">
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  WhatsApp Us
-                </Button>
-              </a>
-              <Link to="/contact" onClick={handleLinkClick}>
-                <Button size="lg" variant="outline" className="hover:scale-105 transition-transform duration-200">
-                  Send Inquiry
-                </Button>
-              </Link>
+          {/* Contact CTA */}
+          <Card className="p-8 mt-16 bg-gradient-to-r from-green-600 to-emerald-600 text-white border-0 animate-fadeInUp">
+            <div className="text-center">
+              <h2 className="text-h1 text-white mb-4">
+                Still Have Questions?
+              </h2>
+              <p className="text-body-large text-green-50 mb-8 max-w-2xl mx-auto">
+                Dr. Niyati Patel is happy to answer any specific questions about
+                your health concerns or Ayurvedic treatments
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/contact" onClick={handleLinkClick}>
+                  <Button size="lg" className="bg-white text-green-600 hover:bg-green-50 text-button-large">
+                    <Phone className="w-5 h-5 mr-2" />
+                    Book Free Discovery Call
+                  </Button>
+                </Link>
+                <a href="tel:+447778147840">
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-600 text-button-large">
+                    Call Now: +44 7778 147840
+                  </Button>
+                </a>
+              </div>
             </div>
           </Card>
 
-          {/* Popular Topics Quick Links - Clean */}
-          <div className="mt-12 bg-green-50 rounded-lg p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
+          {/* Popular Topics Quick Links */}
+          <div className="mt-12 bg-green-50 rounded-lg p-8 animate-fadeInUp">
+            <h3 className="text-h2 text-center mb-6">
               Popular Topics
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <Link
                 to="/about"
                 onClick={handleLinkClick}
-                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200"
+                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200 text-button"
               >
                 About Dr. Niyati Patel
               </Link>
               <Link
                 to="/services"
                 onClick={handleLinkClick}
-                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200"
+                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200 text-button"
               >
                 Service Pricing
               </Link>
               <Link
                 to="/online-consultations"
                 onClick={handleLinkClick}
-                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200"
+                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200 text-button"
               >
                 Online Consultations
               </Link>
               <Link
                 to="/garbhasanskar"
                 onClick={handleLinkClick}
-                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200"
+                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200 text-button"
               >
                 Pregnancy Care
               </Link>
               <Link
                 to="/contact"
                 onClick={handleLinkClick}
-                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200"
+                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200 text-button"
               >
                 Book Appointment
               </Link>
@@ -323,7 +256,7 @@ export const FAQPage: React.FC = () => {
                 href="https://wa.me/447778147840"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200"
+                className="text-green-600 hover:text-green-700 text-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow hover:scale-105 duration-200 text-button"
               >
                 WhatsApp Support
               </a>

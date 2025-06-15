@@ -20,79 +20,55 @@ export const AboutPage: React.FC = () => {
 
   const specializations = [
     {
-      icon: <Users className="w-6 h-6 text-green-500" />,
+      icon: <Heart className="w-6 h-6 text-pink-500" />,
       title: "Women's Health & Hormonal Balance",
       description:
-        "Specialized care for PCOS, menstrual disorders, fertility support, and menopause management",
+        "Specialized care for menstrual health, PCOS, menopause, and reproductive wellness",
     },
     {
-      icon: <Heart className="w-6 h-6 text-pink-500" />,
-      title: "Pregnancy & Postnatal Care",
+      icon: <Users className="w-6 h-6 text-purple-500" />,
+      title: "Pregnancy & Postnatal Care (Garbhasanskar)",
       description:
-        "Comprehensive support throughout pregnancy, childbirth preparation, and postpartum recovery",
-    },
-    {
-      icon: <Heart className="w-6 h-6 text-red-500" />,
-      title: "Digestive Disorders & Gut Health",
-      description:
-        "Natural solutions for IBS, acid reflux, bloating, and digestive imbalances",
+        "Traditional prenatal wisdom and postnatal recovery support for mothers and babies",
     },
     {
       icon: <BookOpen className="w-6 h-6 text-blue-500" />,
-      title: "Stress Management & Mental Wellness",
+      title: "Stress & Digestive Health",
       description:
-        "Ayurvedic approaches to anxiety, depression, sleep disorders, and emotional balance",
-    },
-    {
-      icon: <Award className="w-6 h-6 text-green-500" />,
-      title: "Weight Management & Metabolic Health",
-      description:
-        "Natural weight loss, diabetes support, and metabolic balance through Ayurveda",
+        "Holistic approaches to manage stress, anxiety, and digestive disorders",
     },
     {
       icon: <Star className="w-6 h-6 text-yellow-500" />,
-      title: "Skin Conditions & Anti-Aging",
+      title: "Chronic Conditions Management",
       description:
-        "Natural treatments for acne, eczema, psoriasis, and age-related skin concerns",
+        "Long-term support for arthritis, diabetes, skin conditions, and autoimmune disorders",
     },
   ];
 
   const qualifications = [
-    "Bachelor of Ayurvedic Medicine & Surgery (BAMS) - Gujarat Ayurved University, 2007",
-    "15+ years clinical practice in traditional Ayurvedic medicine",
-    "Specialized training in women's health and pregnancy care",
-    "Advanced certification in Panchakarma detoxification therapies",
-    "Continuing education in modern integrative wellness approaches",
-    "Professional indemnity insurance and UK practice compliance",
+    "BAMS (Bachelor of Ayurvedic Medicine and Surgery)",
+    "15+ Years Clinical Experience",
+    "Specialized training in Women's Health",
+    "Traditional Pulse Diagnosis Certification",
+    "Panchakarma Therapy Training",
+    "Pregnancy & Postnatal Care Specialization",
   ];
 
-  const experience = [
+  const achievements = [
     {
-      period: "2020-Present",
-      role: "Independent Ayurvedic Practitioner",
-      organization: "Ancient Ayurveda, London",
-      description:
-        "Providing personalized Ayurvedic consultations and treatments across North West London",
+      icon: <Award className="w-8 h-8 text-yellow-500" />,
+      title: "500+ Satisfied Clients",
+      description: "Across London and UK-wide online consultations",
     },
     {
-      period: "2015-2020",
-      role: "Senior Ayurvedic Consultant",
-      organization: "Wellness Center, Manchester",
-      description:
-        "Led comprehensive wellness programs and specialized in women's health treatments",
+      icon: <GraduationCap className="w-8 h-8 text-blue-500" />,
+      title: "15+ Years Experience",
+      description: "Practicing traditional Ayurvedic medicine",
     },
     {
-      period: "2010-2015",
-      role: "Ayurvedic Physician",
-      organization: "Holistic Health Center, Birmingham",
-      description: "Specialized in women's health and pregnancy care",
-    },
-    {
-      period: "2007-2010",
-      role: "Junior Physician",
-      organization: "Traditional Ayurveda Hospital, India",
-      description:
-        "Foundation training in classical Ayurvedic practice and patient care",
+      icon: <Heart className="w-8 h-8 text-pink-500" />,
+      title: "Women's Health Expert",
+      description: "Specialized focus on hormonal balance and pregnancy care",
     },
   ];
 
@@ -100,210 +76,241 @@ export const AboutPage: React.FC = () => {
     <PageTransition>
       <div className="min-h-screen py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Hero Section - Clean */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Meet Dr. Niyati Patel
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Your trusted partner in authentic Ayurvedic wellness with over 15
-              years of traditional healing experience
+          {/* Hero Section */}
+          <div className="text-center mb-16 animate-fadeInDown">
+            <h1 className="text-hero mb-6">Meet Dr. Niyati Patel</h1>
+            <p className="text-body-large text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              A qualified BAMS Ayurvedic physician with over 15 years of
+              experience, specializing in women's health, pregnancy care, and
+              holistic wellness. Bringing authentic traditional healing to
+              modern lives across London and beyond.
             </p>
           </div>
 
-          {/* Main Content - Clean */}
+          {/* Main Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Professional Photo */}
-            <div className="flex justify-center lg:justify-start">
-              <div className="w-96 h-96 bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center shadow-lg card-hover">
+            <div className="flex justify-center lg:justify-start animate-fadeInLeft">
+              <div className="w-full max-w-md h-96 bg-gradient-to-br from-green-100 to-blue-100 rounded-lg flex items-center justify-center shadow-lg">
                 <div className="text-center">
                   <div className="w-24 h-24 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <GraduationCap className="w-12 h-12 text-white" />
                   </div>
-                  <p className="text-gray-700 font-semibold">
-                    Dr. Niyati Patel
-                  </p>
-                  <p className="text-gray-500 text-sm">
+                  <p className="text-doctor-name">Dr. Niyati Patel</p>
+                  <p className="text-body-small text-gray-500">
                     BAMS, Ayurvedic Physician
                   </p>
-                  <p className="text-gray-500 text-sm">15+ Years Experience</p>
+                  <p className="text-body-small text-gray-500">
+                    15+ Years Experience
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Professional Background */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Qualified Ayurvedic Physician with Traditional Training
-              </h2>
-              <div className="space-y-4 text-gray-600">
-                <p>
-                  Dr. Niyati Patel completed her Bachelor of Ayurvedic Medicine
-                  & Surgery (BAMS) from Gujarat Ayurved University in India in
-                  2007. With over 15 years of clinical practice, she has helped
-                  thousands of patients achieve optimal health through authentic
-                  Ayurvedic principles.
+            <div className="animate-fadeInRight">
+              <h2 className="text-display mb-6">Professional Background</h2>
+              <div className="space-y-6">
+                <p className="text-body text-gray-700 leading-relaxed">
+                  Dr. Niyati Patel is a qualified Ayurvedic physician holding a
+                  BAMS degree (Bachelor of Ayurvedic Medicine and Surgery) with
+                  over 15 years of dedicated practice in traditional Indian
+                  medicine.
                 </p>
-                <p>
-                  After establishing her practice in India, Dr. Niyati moved to
-                  the UK to bring authentic Ayurvedic healing to families
-                  seeking natural, holistic approaches to wellness. She combines
-                  traditional diagnostic methods with modern understanding of
-                  health challenges.
+                <p className="text-body text-gray-700 leading-relaxed">
+                  Her journey began with classical Ayurvedic training in India,
+                  where she mastered ancient diagnostic techniques including
+                  pulse diagnosis, constitution analysis, and personalized
+                  treatment protocols.
                 </p>
-                <p>
-                  Dr. Niyati specializes in women's health, pregnancy care,
-                  digestive disorders, and stress-related conditions. Her
-                  approach focuses on treating the root cause of health issues
-                  rather than just managing symptoms.
+                <p className="text-body text-gray-700 leading-relaxed">
+                  Now based in London, Dr. Patel combines traditional wisdom
+                  with modern convenience, offering home visits and online
+                  consultations to make authentic Ayurvedic care accessible to
+                  busy modern lives.
                 </p>
-              </div>
 
-              <div className="mt-8">
-                <Link to="/contact" onClick={handleLinkClick}>
-                  <Button
-                    size="lg"
-                    variant="primary"
-                    className="hover:scale-105 transition-transform duration-200"
-                  >
-                    Book Consultation with Dr. Niyati
-                  </Button>
-                </Link>
+                {/* Qualifications */}
+                <div className="bg-green-50 rounded-lg p-6 mt-8">
+                  <h3 className="text-h2 mb-4">
+                    Qualifications & Certifications
+                  </h3>
+                  <ul className="space-y-2">
+                    {qualifications.map((qualification, index) => (
+                      <li
+                        key={index}
+                        className="flex items-center text-body-small text-gray-700"
+                      >
+                        <CheckCircle className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" />
+                        {qualification}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Education & Qualifications - Clean */}
-          <Card className="p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Education & Qualifications
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {qualifications.map((qualification, index) => (
-                <div key={index} className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">{qualification}</span>
-                </div>
-              ))}
+          {/* Specializations */}
+          <div className="mb-16 animate-fadeInUp">
+            <div className="text-center mb-12">
+              <h2 className="text-display mb-4">
+                Areas of Specialization
+              </h2>
+              <p className="text-body-large text-gray-600 max-w-3xl mx-auto">
+                Dr. Patel's expertise spans multiple areas of Ayurvedic
+                medicine, with special focus on women's health and family
+                wellness
+              </p>
             </div>
-          </Card>
 
-          {/* Areas of Expertise - Clean */}
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-              Areas of Expertise
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {specializations.map((spec, index) => (
-                <Card key={index} className="p-6 text-center card-hover">
-                  <div className="flex justify-center mb-4">{spec.icon}</div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                    {spec.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm">{spec.description}</p>
+                <Card
+                  key={index}
+                  className="p-6 hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0">{spec.icon}</div>
+                    <div>
+                      <h3 className="text-h3 mb-2">
+                        {spec.title}
+                      </h3>
+                      <p className="text-body-small text-gray-600">
+                        {spec.description}
+                      </p>
+                    </div>
+                  </div>
                 </Card>
               ))}
             </div>
           </div>
 
-          {/* Professional Experience - Clean */}
-          <Card className="p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">
-              Professional Experience
-            </h2>
-            <div className="space-y-8">
-              {experience.map((exp, index) => (
-                <div key={index} className="flex">
-                  <div className="flex-shrink-0 w-24 text-sm font-semibold text-green-600">
-                    {exp.period}
+          {/* Achievements */}
+          <div className="mb-16 animate-fadeInUp">
+            <div className="text-center mb-12">
+              <h2 className="text-display mb-4">
+                Recognition & Achievements
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {achievements.map((achievement, index) => (
+                <Card
+                  key={index}
+                  className="p-6 text-center hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div className="flex justify-center mb-4">
+                    {achievement.icon}
                   </div>
-                  <div className="flex-grow ml-6">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {exp.role}
-                    </h3>
-                    <p className="text-green-600 font-medium mb-2">
-                      {exp.organization}
-                    </p>
-                    <p className="text-gray-600">{exp.description}</p>
-                  </div>
-                </div>
+                  <h3 className="text-h3 mb-2">
+                    {achievement.title}
+                  </h3>
+                  <p className="text-body-small text-gray-600">
+                    {achievement.description}
+                  </p>
+                </Card>
               ))}
             </div>
-          </Card>
+          </div>
 
-          {/* Philosophy & Approach - Clean */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-            <Card className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                My Approach to Healing
-              </h2>
-              <div className="space-y-4 text-gray-600">
-                <p>
-                  "I believe in the ancient wisdom that every individual has a
-                  unique constitution and requires personalized care. My
-                  approach combines time-tested Ayurvedic principles with
-                  compassionate, patient-centered care."
-                </p>
-                <p>
-                  "Rather than treating symptoms in isolation, I work to
-                  understand the root causes of imbalance and guide patients
-                  toward sustainable wellness through natural methods."
-                </p>
-                <p>
-                  "Living and practicing in London has taught me to adapt
-                  traditional treatments to modern lifestyles while maintaining
-                  their effectiveness and authenticity."
-                </p>
-              </div>
-            </Card>
-
-            <Card className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Why I Came to the UK
-              </h2>
-              <div className="space-y-4 text-gray-600">
-                <p>
-                  "I moved to the UK to share the authentic healing traditions
-                  of Ayurveda with people who are seeking natural, holistic
-                  approaches to wellness. I noticed that while there are many
-                  wellness services available, few offer the depth of
-                  traditional Ayurvedic knowledge combined with qualified
-                  medical training."
-                </p>
-                <p>
-                  "My mission is to make genuine Ayurvedic care accessible and
-                  convenient for busy modern lives, while maintaining the
-                  integrity and effectiveness of this ancient science."
-                </p>
-                <p>
-                  "Living in North West London has allowed me to serve diverse
-                  communities and help families discover the transformative
-                  power of personalized, traditional wellness care."
-                </p>
+          {/* Philosophy Section */}
+          <div className="mb-16 animate-fadeInUp">
+            <Card className="p-8 bg-gradient-to-r from-green-50 to-blue-50">
+              <div className="text-center">
+                <h2 className="text-display mb-6">
+                  Dr. Patel's Philosophy
+                </h2>
+                <blockquote className="text-body-large text-gray-700 italic leading-relaxed max-w-4xl mx-auto">
+                  "Ayurveda teaches us that true health is not just the absence
+                  of disease, but a state of complete physical, mental, and
+                  spiritual well-being. My approach focuses on treating the
+                  person, not just the symptoms, using time-tested traditional
+                  methods adapted for modern life."
+                </blockquote>
+                <cite className="text-doctor-name mt-4 block">
+                  - Dr. Niyati Patel, BAMS
+                </cite>
               </div>
             </Card>
           </div>
 
-          {/* Call to Action - Clean */}
-          <div className="text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg p-12 shadow-xl">
-            <h2 className="text-3xl font-bold text-white mb-4">
+          {/* Why Choose Dr. Patel */}
+          <div className="mb-16 animate-fadeInUp">
+            <div className="text-center mb-12">
+              <h2 className="text-display mb-4">
+                Why Choose Dr. Patel?
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <Card className="p-6">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <GraduationCap className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h3 className="text-h3 mb-2">
+                    Qualified & Experienced
+                  </h3>
+                  <p className="text-body-small text-gray-600">
+                    BAMS qualified with 15+ years of clinical experience in
+                    traditional Ayurvedic medicine
+                  </p>
+                </div>
+              </Card>
+
+              <Card className="p-6">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Heart className="w-8 h-8 text-pink-600" />
+                  </div>
+                  <h3 className="text-h3 mb-2">
+                    Personalized Care
+                  </h3>
+                  <p className="text-body-small text-gray-600">
+                    Every treatment plan is tailored to your unique constitution
+                    and health needs
+                  </p>
+                </div>
+              </Card>
+
+              <Card className="p-6">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <h3 className="text-h3 mb-2">
+                    Women's Health Expert
+                  </h3>
+                  <p className="text-body-small text-gray-600">
+                    Specialized expertise in women's health, pregnancy care, and
+                    hormonal balance
+                  </p>
+                </div>
+              </Card>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center bg-green-50 rounded-lg p-8 sm:p-12 animate-fadeInUp">
+            <h2 className="text-h1 mb-4">
               Ready to Start Your Wellness Journey?
             </h2>
-            <p className="text-xl text-green-50 mb-8 max-w-2xl mx-auto">
+            <p className="text-body-large text-gray-700 mb-8 max-w-2xl mx-auto">
               Experience the difference that qualified, traditional Ayurvedic
               care can make in your life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact" onClick={handleLinkClick}>
                 <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg font-medium rounded-lg group bg-gradient-to-br from-green-500 to-emerald-500 group-hover:from-green-500 group-hover:to-emerald-500 hover:text-green-600 focus:ring-4 focus:outline-none focus:ring-green-200 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center">
+                  <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center text-button-large">
                     Book Your Consultation
                   </span>
                 </button>
               </Link>
               <Link to="/services" onClick={handleLinkClick}>
                 <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg font-medium rounded-lg group bg-gradient-to-br from-green-500 to-emerald-500 group-hover:from-green-500 group-hover:to-emerald-500 hover:text-green-600 focus:ring-4 focus:outline-none focus:ring-green-200 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center">
+                  <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center text-button-large">
                     View All Services
                   </span>
                 </button>
