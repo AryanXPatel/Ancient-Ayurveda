@@ -192,22 +192,19 @@ export const FAQPage: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact" onClick={handleLinkClick}>
-                  <Button
-                    size="lg"
-                    className="bg-white text-green-600 hover:bg-green-50 text-button-large"
-                  >
-                    <Phone className="w-5 h-5 mr-2" />
-                    Book Free Discovery Call
-                  </Button>
+                  <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg font-medium rounded-lg group bg-gradient-to-br from-green-500 to-emerald-500 group-hover:from-green-500 group-hover:to-emerald-500 hover:text-green-600 focus:ring-4 focus:outline-none focus:ring-green-200 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center text-button-large">
+                      <Phone className="w-5 h-5 mr-2" />
+                      Book Free Discovery Call
+                    </span>
+                  </button>
                 </Link>
                 <a href="tel:+447778147840">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-green-600 text-button-large"
-                  >
-                    Call Now: +44 7778 147840
-                  </Button>
+                  <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg font-medium rounded-lg group bg-gradient-to-br from-green-500 to-emerald-500 group-hover:from-green-500 group-hover:to-emerald-500 hover:text-green-600 focus:ring-4 focus:outline-none focus:ring-green-200 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center text-button-large">
+                      Call Now: +44 7778 147840
+                    </span>
+                  </button>
                 </a>
               </div>
             </div>

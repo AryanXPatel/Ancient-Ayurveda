@@ -6,14 +6,12 @@ import { PageTransition } from "../components/ui/PageTransition";
 import {
   Baby,
   Heart,
-  Star,
-  Calendar,
-  Clock,
+  Sparkles,
+  BookOpen,
+  Users,
   Phone,
   CheckCircle,
-  Gift,
-  BookOpen,
-  Sparkles,
+  Star,
 } from "lucide-react";
 
 export const GarbhasanskarPage: React.FC = () => {
@@ -24,13 +22,13 @@ export const GarbhasanskarPage: React.FC = () => {
   const programComponents = [
     {
       icon: <Heart className="w-8 h-8 text-pink-500" />,
-      title: "Prenatal Nutrition Guidance",
+      title: "Holistic Prenatal Care",
       description:
-        "Traditional Ayurvedic nutrition plans tailored for each trimester",
+        "Complete wellness support throughout your pregnancy journey",
       features: [
-        "Personalized meal plans for optimal nourishment",
-        "Foods to enhance baby's development",
-        "Managing pregnancy symptoms naturally",
+        "Monthly comprehensive consultations",
+        "Traditional constitution assessment",
+        "Pregnancy-specific dietary guidance",
         "Seasonal nutrition adjustments",
         "Safe herbal support recommendations",
       ],
@@ -61,73 +59,105 @@ export const GarbhasanskarPage: React.FC = () => {
       ],
     },
     {
-      icon: <Baby className="w-8 h-8 text-green-500" />,
-      title: "Baby Development Support",
-      description:
-        "Ancient practices to enhance your baby's growth and development",
+      icon: <Users className="w-8 h-8 text-green-500" />,
+      title: "Family Preparation",
+      description: "Preparing your entire family for the new arrival",
       features: [
-        "Music and sound therapy for baby",
-        "Reading and storytelling practices",
-        "Bonding techniques with unborn baby",
-        "Environmental considerations",
-        "Cultural and spiritual practices",
+        "Partner support and education",
+        "Sibling preparation guidance",
+        "Home environment optimization",
+        "Birth preparation planning",
+        "Postpartum transition support",
+      ],
+    },
+  ];
+
+  const monthlyStructure = [
+    {
+      trimester: "First Trimester",
+      months: "Months 1-3",
+      focus: "Foundation & Stabilization",
+      activities: [
+        "Foundation consultation and assessment",
+        "Morning sickness management",
+        "Emotional support and guidance",
+        "Initial bonding practices",
+      ],
+    },
+    {
+      trimester: "Second Trimester",
+      months: "Months 4-6",
+      focus: "Growth & Energy",
+      activities: [
+        "Energy optimization treatments",
+        "Nutrition enhancement program",
+        "Stress management techniques",
+        "Physical comfort therapies",
+      ],
+    },
+    {
+      trimester: "Third Trimester",
+      months: "Months 7-9",
+      focus: "Preparation & Comfort",
+      activities: [
+        "Birth preparation support",
+        "Anxiety management",
+        "Physical comfort treatments",
+        "Postpartum planning",
       ],
     },
   ];
 
   const packages = [
     {
-      title: "Essential Garbhasanskar",
-      price: "£450",
-      duration: "12 weeks",
-      sessions: "6 sessions",
-      popular: false,
-      features: [
-        "Initial comprehensive consultation",
-        "Monthly follow-up consultations",
-        "Personalized nutrition plan",
-        "Basic meditation techniques",
-        "Prenatal care guidelines",
-        "WhatsApp support throughout",
-      ],
-      bestFor: "First-time mothers wanting foundational support",
-    },
-    {
       title: "Complete Garbhasanskar Program",
-      price: "£750",
-      duration: "24 weeks",
-      sessions: "12 sessions",
+      price: "£950",
+      duration: "9 months",
+      sessions: "9 sessions",
       popular: true,
+      bestFor: "First-time mothers seeking comprehensive support",
       features: [
-        "Everything in Essential package",
-        "Bi-weekly consultations",
-        "3 gentle prenatal treatments",
-        "Partner education sessions",
-        "Advanced meditation & yoga",
-        "Childbirth preparation guidance",
-        "Postpartum planning included",
-        "24/7 emergency support",
+        "Monthly 90-minute consultations throughout pregnancy",
+        "Personalized nutrition and lifestyle guidance",
+        "Safe pregnancy treatments and massages",
+        "Emotional and mental wellness support",
+        "Birth preparation and planning",
+        "Partner education and involvement",
+        "Postpartum transition guidance",
+        "24/7 WhatsApp support for urgent questions",
+        "Herbal support where appropriate",
       ],
-      bestFor: "Comprehensive prenatal care with full traditional support",
     },
     {
-      title: "Premium Garbhasanskar Journey",
-      price: "£1200",
-      duration: "36 weeks",
-      sessions: "18 sessions",
+      title: "Trimester-Focused Program",
+      price: "£350",
+      duration: "3 months",
+      sessions: "3 sessions",
       popular: false,
+      bestFor: "Mothers who want focused support for specific pregnancy phases",
       features: [
-        "Everything in Complete package",
-        "Weekly consultations from 28 weeks",
-        "6 specialized treatments",
-        "Home environment assessment",
-        "Extended postpartum support (6 weeks)",
-        "Baby development milestone tracking",
-        "Family wellness planning",
-        "Priority scheduling guarantee",
+        "3 comprehensive consultations",
+        "Trimester-specific guidance and support",
+        "Appropriate treatments for the phase",
+        "Nutritional recommendations",
+        "Emotional and physical wellness support",
+        "Email follow-up and support",
       ],
-      bestFor:
-        "Mothers wanting the most comprehensive traditional pregnancy journey",
+    },
+    {
+      title: "Individual Consultation",
+      price: "£120",
+      duration: "Single session",
+      sessions: "1 session",
+      popular: false,
+      bestFor: "Mothers with specific concerns or questions",
+      features: [
+        "Single 75-minute consultation",
+        "Specific concern assessment",
+        "Targeted recommendations",
+        "Treatment if appropriate",
+        "Follow-up email summary",
+      ],
     },
   ];
 
@@ -166,14 +196,14 @@ export const GarbhasanskarPage: React.FC = () => {
       name: "Anjali M.",
       location: "Wembley",
       content:
-        "Dr. Niyati's guidance was invaluable. My baby was born calm and alert, and I had a smooth delivery.",
+        "Dr. Niyati's guidance helped me through a difficult pregnancy. My baby is so calm and content - I'm sure the program helped!",
       rating: 5,
     },
     {
-      name: "Sarah P.",
-      location: "Neasden",
+      name: "Sarah K.",
+      location: "Kingsbury",
       content:
-        "Even as a non-Indian mother, I found the traditional practices beautiful and beneficial for both me and my baby.",
+        "The combination of traditional wisdom and practical support was exactly what I needed. Highly recommend to all expecting mothers.",
       rating: 5,
     },
   ];
@@ -182,78 +212,78 @@ export const GarbhasanskarPage: React.FC = () => {
     <PageTransition>
       <div className="min-h-screen py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Hero Section - Clean */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          {/* Hero Section */}
+          <div className="text-center mb-16 animate-fadeInDown">
+            <h1 className="text-hero mb-6">
               Traditional Garbhasanskar - Ayurvedic Prenatal Wellness Program
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-body-large text-gray-600 max-w-4xl mx-auto mb-8">
               Ancient wisdom for modern mothers - Supporting both you and your
-              baby's wellbeing throughout your pregnancy journey
+              baby's wellbeing through traditional Ayurvedic practices, adapted
+              for contemporary life in London.
             </p>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact" onClick={handleLinkClick}>
                 <Button
                   size="lg"
                   variant="primary"
-                  className="hover:scale-105 transition-transform duration-200"
+                  className="text-button-large"
                 >
                   <Baby className="w-5 h-5 mr-2" />
                   Start Your Journey
                 </Button>
               </Link>
-              <a href="tel:+447778147840">
+              <a
+                href="https://wa.me/447778147840"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button
                   size="lg"
                   variant="outline"
-                  className="hover:scale-105 transition-transform duration-200"
+                  className="text-button-large"
                 >
                   <Phone className="w-5 h-5 mr-2" />
-                  Discuss Your Needs: +44 7778 147840
+                  Discuss Your Needs
                 </Button>
               </a>
             </div>
           </div>
 
-          {/* What is Garbhasanskar - Clean */}
+          {/* What is Garbhasanskar */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                What is Garbhasanskar?
-              </h2>
-              <div className="space-y-4 text-gray-600">
+            <div className="animate-fadeInLeft">
+              <h2 className="text-display mb-6">What is Garbhasanskar?</h2>
+              <div className="space-y-4 text-body text-gray-700">
                 <p>
-                  Garbhasanskar is an ancient Ayurvedic practice that recognizes
-                  pregnancy as a sacred time of creation. 'Garbha' means womb
-                  and 'Sanskar' means positive impressions, together creating a
-                  program that nurtures both mother and baby's physical, mental,
-                  and spiritual development.
+                  Garbhasanskar is an ancient Ayurvedic practice that focuses on
+                  the holistic development of both mother and baby during
+                  pregnancy. This traditional approach recognizes that a
+                  mother's physical, mental, and spiritual well-being directly
+                  influences her baby's development.
                 </p>
                 <p>
-                  This traditional wisdom teaches that a baby's development
-                  begins from conception and is influenced by the mother's
-                  thoughts, emotions, diet, lifestyle, and environment. Through
-                  personalized guidance, we help create optimal conditions for
-                  your baby's growth and your own well-being.
+                  The word "Garbhasanskar" comes from Sanskrit - "Garbha"
+                  meaning womb and "Sanskar" meaning positive impressions. This
+                  practice creates an optimal environment for your baby's growth
+                  while supporting your own wellness throughout pregnancy.
                 </p>
                 <p>
-                  Dr. Niyati combines authentic Garbhasanskar principles with
-                  modern prenatal care understanding, creating a comprehensive
-                  program that honors tradition while supporting your
-                  contemporary lifestyle.
+                  Dr. Niyati's program adapts these time-tested principles for
+                  modern life, combining traditional wisdom with contemporary
+                  understanding of pregnancy wellness.
                 </p>
               </div>
             </div>
 
-            <div className="flex justify-center">
-              <div className="w-96 h-96 bg-gradient-to-br from-pink-100 to-purple-100 rounded-lg flex items-center justify-center shadow-lg card-hover">
+            <div className="flex justify-center animate-fadeInRight">
+              <div className="w-full max-w-md h-96 bg-gradient-to-br from-pink-100 to-purple-100 rounded-lg flex items-center justify-center shadow-lg">
                 <div className="text-center">
                   <Baby className="w-24 h-24 text-pink-500 mx-auto mb-4" />
-                  <p className="text-gray-700 font-semibold">
+                  <p className="text-h2 text-gray-700">
                     Holistic Pregnancy Care
                   </p>
-                  <p className="text-gray-500 text-sm">
+                  <p className="text-body-small text-gray-500">
                     For Mother & Baby Wellness
                   </p>
                 </div>
@@ -261,26 +291,28 @@ export const GarbhasanskarPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Program Components - Clean */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+          {/* Program Components */}
+          <div className="mb-16 animate-fadeInUp">
+            <h2 className="text-display text-center mb-12">
               Comprehensive Prenatal Support
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {programComponents.map((component, index) => (
                 <Card key={index} className="p-6 card-hover">
                   <div className="flex items-center mb-4">
-                    <div className="text-pink-500 mr-4">{component.icon}</div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      {component.title}
-                    </h3>
+                    <div className="mr-4">{component.icon}</div>
+                    <h3 className="text-h2">{component.title}</h3>
                   </div>
-                  <p className="text-gray-600 mb-4">{component.description}</p>
+                  <p className="text-body text-gray-600 mb-4">
+                    {component.description}
+                  </p>
                   <ul className="space-y-2">
                     {component.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
                         <CheckCircle className="w-4 h-4 text-pink-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-600 text-sm">{feature}</span>
+                        <span className="text-body-small text-gray-600">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -289,9 +321,41 @@ export const GarbhasanskarPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Program Packages - Clean */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+          {/* Monthly Structure */}
+          <div className="mb-16 animate-fadeInUp">
+            <h2 className="text-display text-center mb-12">
+              Month-by-Month Support
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {monthlyStructure.map((trimester, index) => (
+                <Card key={index} className="p-6 text-center card-hover">
+                  <div className="mb-4">
+                    <h3 className="text-h2 mb-2">{trimester.trimester}</h3>
+                    <p className="text-h3 text-pink-600 font-semibold">
+                      {trimester.months}
+                    </p>
+                    <p className="text-body-small text-gray-600">
+                      {trimester.focus}
+                    </p>
+                  </div>
+                  <ul className="space-y-2 text-left">
+                    {trimester.activities.map((activity, activityIndex) => (
+                      <li key={activityIndex} className="flex items-start">
+                        <Heart className="w-4 h-4 text-pink-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-body-small text-gray-600">
+                          {activity}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Program Packages */}
+          <div className="mb-16 animate-fadeInUp">
+            <h2 className="text-display text-center mb-12">
               Choose Your Garbhasanskar Journey
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -311,26 +375,22 @@ export const GarbhasanskarPage: React.FC = () => {
                   )}
 
                   <div className="text-center mb-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {pkg.title}
-                    </h3>
-                    <div className="text-3xl font-bold text-pink-600 mb-2">
+                    <h3 className="text-h2 mb-2">{pkg.title}</h3>
+                    <div className="text-h1 text-pink-600 font-bold mb-2">
                       {pkg.price}
                     </div>
-                    <div className="text-gray-600 text-sm">
+                    <div className="text-body-small text-gray-600">
                       {pkg.duration} • {pkg.sessions}
                     </div>
                   </div>
 
                   <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3">
-                      Program Includes:
-                    </h4>
+                    <h4 className="text-h3 mb-3">Program Includes:</h4>
                     <ul className="space-y-2">
                       {pkg.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start">
                           <CheckCircle className="w-4 h-4 text-pink-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-600 text-sm">
+                          <span className="text-body-small text-gray-600">
                             {feature}
                           </span>
                         </li>
@@ -339,7 +399,7 @@ export const GarbhasanskarPage: React.FC = () => {
                   </div>
 
                   <div className="mb-6 p-3 bg-pink-50 rounded-lg">
-                    <p className="text-sm text-pink-800">
+                    <p className="text-body-small text-pink-800">
                       <strong>Best for:</strong> {pkg.bestFor}
                     </p>
                   </div>
@@ -347,7 +407,7 @@ export const GarbhasanskarPage: React.FC = () => {
                   <Link to="/contact" onClick={handleLinkClick}>
                     <Button
                       variant={pkg.popular ? "primary" : "outline"}
-                      className="w-full hover:scale-105 transition-transform duration-200"
+                      className="w-full hover:scale-105 transition-transform duration-200 text-button"
                     >
                       Choose This Program
                     </Button>
@@ -357,40 +417,36 @@ export const GarbhasanskarPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Benefits Section - Clean */}
+          {/* Benefits Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            <Card className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                Benefits for Mother
-              </h2>
+            <Card className="p-8 animate-fadeInLeft">
+              <h2 className="text-h1 mb-6 text-center">Benefits for Mother</h2>
               <div className="space-y-3">
                 {benefits.mother.map((benefit, index) => (
                   <div key={index} className="flex items-start">
-                    <Heart className="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
+                    <CheckCircle className="w-5 h-5 text-pink-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-body text-gray-700">{benefit}</span>
                   </div>
                 ))}
               </div>
             </Card>
 
-            <Card className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                Benefits for Baby
-              </h2>
+            <Card className="p-8 animate-fadeInRight">
+              <h2 className="text-h1 mb-6 text-center">Benefits for Baby</h2>
               <div className="space-y-3">
                 {benefits.baby.map((benefit, index) => (
                   <div key={index} className="flex items-start">
-                    <Baby className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
+                    <CheckCircle className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-body text-gray-700">{benefit}</span>
                   </div>
                 ))}
               </div>
             </Card>
           </div>
 
-          {/* Testimonials - Clean */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+          {/* Testimonials */}
+          <div className="mb-16 animate-fadeInUp">
+            <h2 className="text-display text-center mb-12">
               Happy Mothers Share Their Experience
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -404,163 +460,110 @@ export const GarbhasanskarPage: React.FC = () => {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-4 italic">
+                  <p className="text-body text-gray-600 mb-4 italic">
                     "{testimonial.content}"
                   </p>
-                  <div className="text-sm">
+                  <div className="text-body-small">
                     <p className="font-semibold text-gray-900">
                       {testimonial.name}
                     </p>
-                    <p className="text-gray-500">{testimonial.location}</p>
+                    <p className="text-pink-600">{testimonial.location}</p>
                   </div>
                 </Card>
               ))}
             </div>
           </div>
 
-          {/* When to Start - Clean */}
-          <Card className="p-8 mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              When to Start Your Garbhasanskar Journey
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calendar className="w-8 h-8 text-pink-600" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  Preconception (Ideal)
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Start 3-6 months before trying to conceive for optimal
-                  preparation of mind, body, and environment.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  First Trimester
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Begin as soon as pregnancy is confirmed to establish healthy
-                  foundations for development.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  Any Time During Pregnancy
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  It's never too late to start! Benefits can be experienced at
-                  any stage of pregnancy.
-                </p>
-              </div>
-            </div>
-          </Card>
-
-          {/* FAQ Section - Clean */}
-          <Card className="p-8 mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          {/* FAQ Section */}
+          <Card className="p-8 mb-16 animate-fadeInUp">
+            <h2 className="text-h1 text-center mb-8">
               Common Questions About Garbhasanskar
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    Is Garbhasanskar only for Indian families?
+                  <h3 className="text-h3 mb-2">
+                    When should I start the program?
                   </h3>
-                  <p className="text-gray-600 text-sm">
-                    Not at all! While rooted in Indian tradition, Garbhasanskar
-                    principles benefit all families. Dr. Niyati adapts practices
-                    to suit different cultural backgrounds and beliefs.
+                  <p className="text-body-small text-gray-600">
+                    Ideally, start as early as possible in pregnancy. The
+                    program can begin from conception through to the third
+                    trimester, with benefits at any stage.
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    Do I need to follow specific religious practices?
+                  <h3 className="text-h3 mb-2">
+                    Is this safe during pregnancy?
                   </h3>
-                  <p className="text-gray-600 text-sm">
-                    No religious requirements. The focus is on health, wellness,
-                    and positive environments. Spiritual aspects are optional
-                    and adapted to your comfort level.
+                  <p className="text-body-small text-gray-600">
+                    Absolutely. All treatments and recommendations are
+                    specifically designed for pregnancy safety. Dr. Niyati
+                    specializes in prenatal care with 15+ years of experience.
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    Can my partner be involved?
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    Absolutely! Partner involvement is encouraged and
-                    beneficial. We provide guidance for both parents to create
-                    the best environment for your growing family.
+                  <h3 className="text-h3 mb-2">What if I miss sessions?</h3>
+                  <p className="text-body-small text-gray-600">
+                    We understand pregnancy can be unpredictable. Missed
+                    appointments can be rescheduled and we offer flexible makeup
+                    sessions.
                   </p>
                 </div>
               </div>
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    How does this work with my NHS care?
+                  <h3 className="text-h3 mb-2">
+                    Do you provide postpartum support?
                   </h3>
-                  <p className="text-gray-600 text-sm">
-                    Garbhasanskar complements NHS prenatal care perfectly. We
-                    work alongside your medical team and encourage continued NHS
-                    monitoring for optimal pregnancy care.
+                  <p className="text-body-small text-gray-600">
+                    Yes! All programs include postpartum transition guidance and
+                    we offer separate postnatal recovery programs as well.
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    What if I have pregnancy complications?
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    We adapt the program to your specific needs and work closely
-                    with your medical team. Safety is always our priority, and
-                    practices are modified accordingly.
+                  <h3 className="text-h3 mb-2">Is this available online?</h3>
+                  <p className="text-body-small text-gray-600">
+                    Yes, the entire program can be delivered online with some
+                    modifications for clients outside our home visit areas.
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    Are treatments safe during pregnancy?
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    All treatments are specifically designed for pregnancy and
-                    use safe, gentle techniques. Dr. Niyati specializes in
-                    prenatal care and ensures all practices are appropriate for
-                    your stage of pregnancy.
+                  <h3 className="text-h3 mb-2">Can partners be involved?</h3>
+                  <p className="text-body-small text-gray-600">
+                    Partner involvement is encouraged and beneficial. We provide
+                    education and guidance for partners to support the mother's
+                    journey.
                   </p>
                 </div>
               </div>
             </div>
           </Card>
 
-          {/* Call to Action - Clean */}
-          {/* Call to Action - Inverted Gradient Buttons */}
-          <div className="text-center bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-lg p-12 shadow-xl">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Begin Your Sacred Pregnancy Journey
+          {/* Call to Action */}
+          <div className="text-center bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-lg p-8 sm:p-12 animate-fadeInUp">
+            <h2 className="text-h1 mb-4 text-white">
+              Begin Your Garbhasanskar Journey Today
             </h2>
-            <p className="text-xl text-pink-50 mb-8 max-w-2xl mx-auto">
-              Give your baby the best start in life with ancient wisdom and
-              modern care
+            <p className="text-body-large text-pink-50 mb-8 max-w-3xl mx-auto">
+              Give your baby the best possible start in life with traditional
+              Ayurvedic wisdom and modern prenatal care
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact" onClick={handleLinkClick}>
                 <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg font-medium rounded-lg group bg-gradient-to-br from-pink-500 to-purple-500 group-hover:from-pink-500 group-hover:to-purple-500 hover:text-pink-600 focus:ring-4 focus:outline-none focus:ring-pink-200 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-pink-600 flex items-center">
-                    <Gift className="w-5 h-5 mr-2" />
-                    Start Your Journey
+                  <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-pink-600 flex items-center text-button-large">
+                    <Baby className="w-5 h-5 mr-2" />
+                    Start Your Program
                   </span>
                 </button>
               </Link>
-              <a href="tel:+447778147840">
+              <a
+                href="tel:+447778147840"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg font-medium rounded-lg group bg-gradient-to-br from-pink-500 to-purple-500 group-hover:from-pink-500 group-hover:to-purple-500 hover:text-pink-600 focus:ring-4 focus:outline-none focus:ring-pink-200 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-pink-600 flex items-center">
+                  <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-pink-600 flex items-center text-button-large">
                     <Phone className="w-5 h-5 mr-2" />
                     Discuss Your Needs: +44 7778 147840
                   </span>

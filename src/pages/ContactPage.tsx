@@ -384,21 +384,22 @@ export const ContactPage: React.FC = () => {
                 </form>
               </Card>
 
-              {/* Quick Action CTA */}
-              <Card className="p-8 bg-gradient-to-r from-green-600 to-emerald-600 text-white border-0 shadow-xl mt-8">
+              {/* Quick Action CTA - Simplified */}
+              <Card className="p-6 bg-gradient-to-r from-green-600 to-emerald-600 text-white border-0 shadow-lg mt-6">
                 <div className="text-center">
-                  <h3 className="text-h2 text-white mb-4">
+                  <h3 className="text-h3 text-white mb-3">
                     Prefer to Call Directly?
                   </h3>
-                  <p className="text-green-50 mb-6 text-body">
+                  <p className="text-green-50 mb-4 text-body-small">
                     Speak directly with Dr. Niyati for immediate assistance
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <a href="tel:+447778147840">
                       <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg font-medium rounded-lg group bg-gradient-to-br from-green-500 to-emerald-500 group-hover:from-green-500 group-hover:to-emerald-500 hover:text-green-600 focus:ring-4 focus:outline-none focus:ring-green-200 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                        <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center">
-                          <Phone className="w-5 h-5 mr-2" />
-                          Call Now: +44 7778 147840
+                        <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center text-button-large">
+                          {" "}
+                          <Phone className="w-4 h-4 mr-2" />
+                          Call Now
                         </span>
                       </button>
                     </a>
@@ -408,9 +409,9 @@ export const ContactPage: React.FC = () => {
                       rel="noopener noreferrer"
                     >
                       <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg font-medium rounded-lg group bg-gradient-to-br from-green-500 to-emerald-500 group-hover:from-green-500 group-hover:to-emerald-500 hover:text-green-600 focus:ring-4 focus:outline-none focus:ring-green-200 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                        <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center">
-                          <MessageCircle className="w-5 h-5 mr-2" />
-                          WhatsApp Us
+                        <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center text-button-large">
+                          <MessageCircle className="w-4 h-4 mr-2" />
+                          WhatsApp
                         </span>
                       </button>
                     </a>
