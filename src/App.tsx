@@ -1,4 +1,3 @@
-Ancient-Ayurveda-June-15\ancient-ayurveda\src\App.tsx
 import { Routes, Route } from "react-router-dom";
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
