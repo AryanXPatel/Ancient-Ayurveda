@@ -13,7 +13,6 @@ import {
   MessageCircle,
   Globe,
   Video,
-  Users,
   Heart,
   BookOpen,
   Star,

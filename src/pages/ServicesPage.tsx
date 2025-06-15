@@ -11,10 +11,8 @@ import {
   RotateCcw,
   Gift,
   Clock,
-  MapPin,
   Phone,
   CheckCircle,
-  Star,
 } from "lucide-react";
 
 export const ServicesPage: React.FC = () => {

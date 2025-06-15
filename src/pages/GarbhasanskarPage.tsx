@@ -10,13 +10,10 @@ import {
   Calendar,
   Clock,
   Phone,
-  MessageCircle,
   CheckCircle,
   Gift,
-  Users,
   BookOpen,
   Sparkles,
-  Shield,
 } from "lucide-react";
 
 export const GarbhasanskarPage: React.FC = () => {

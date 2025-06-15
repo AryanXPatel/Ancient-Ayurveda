@@ -135,7 +135,7 @@ export const Header: React.FC = () => {
                 MozAppearance: "none",
                 appearance: "none",
                 background: "transparent",
-                WebkitFocusRingColor: "transparent",
+                // WebkitFocusRingColor: "transparent",
               }}
               onFocus={(e) => e.target.blur()}
               onTouchStart={(e) => e.preventDefault()}

@@ -4,16 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { PageTransition } from "../components/ui/PageTransition";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  MessageCircle,
-  Calendar,
-  User,
-  Heart,
-} from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import toast from "react-hot-toast";
 import emailjs from "emailjs-com";
 

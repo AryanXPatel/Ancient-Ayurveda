@@ -9,7 +9,6 @@ import {
   Heart,
   Users,
   BookOpen,
-  Globe,
   Star,
   CheckCircle,
 } from "lucide-react";
