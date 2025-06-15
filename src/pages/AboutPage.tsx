@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { PageTransition } from "../components/ui/PageTransition";
 import {
@@ -154,9 +153,7 @@ export const AboutPage: React.FC = () => {
           {/* Specializations */}
           <div className="mb-16 animate-fadeInUp">
             <div className="text-center mb-12">
-              <h2 className="text-display mb-4">
-                Areas of Specialization
-              </h2>
+              <h2 className="text-display mb-4">Areas of Specialization</h2>
               <p className="text-body-large text-gray-600 max-w-3xl mx-auto">
                 Dr. Patel's expertise spans multiple areas of Ayurvedic
                 medicine, with special focus on women's health and family
@@ -173,9 +170,7 @@ export const AboutPage: React.FC = () => {
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">{spec.icon}</div>
                     <div>
-                      <h3 className="text-h3 mb-2">
-                        {spec.title}
-                      </h3>
+                      <h3 className="text-h3 mb-2">{spec.title}</h3>
                       <p className="text-body-small text-gray-600">
                         {spec.description}
                       </p>
@@ -189,9 +184,7 @@ export const AboutPage: React.FC = () => {
           {/* Achievements */}
           <div className="mb-16 animate-fadeInUp">
             <div className="text-center mb-12">
-              <h2 className="text-display mb-4">
-                Recognition & Achievements
-              </h2>
+              <h2 className="text-display mb-4">Recognition & Achievements</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -203,9 +196,7 @@ export const AboutPage: React.FC = () => {
                   <div className="flex justify-center mb-4">
                     {achievement.icon}
                   </div>
-                  <h3 className="text-h3 mb-2">
-                    {achievement.title}
-                  </h3>
+                  <h3 className="text-h3 mb-2">{achievement.title}</h3>
                   <p className="text-body-small text-gray-600">
                     {achievement.description}
                   </p>
@@ -218,9 +209,7 @@ export const AboutPage: React.FC = () => {
           <div className="mb-16 animate-fadeInUp">
             <Card className="p-8 bg-gradient-to-r from-green-50 to-blue-50">
               <div className="text-center">
-                <h2 className="text-display mb-6">
-                  Dr. Patel's Philosophy
-                </h2>
+                <h2 className="text-display mb-6">Dr. Patel's Philosophy</h2>
                 <blockquote className="text-body-large text-gray-700 italic leading-relaxed max-w-4xl mx-auto">
                   "Ayurveda teaches us that true health is not just the absence
                   of disease, but a state of complete physical, mental, and
@@ -238,9 +227,7 @@ export const AboutPage: React.FC = () => {
           {/* Why Choose Dr. Patel */}
           <div className="mb-16 animate-fadeInUp">
             <div className="text-center mb-12">
-              <h2 className="text-display mb-4">
-                Why Choose Dr. Patel?
-              </h2>
+              <h2 className="text-display mb-4">Why Choose Dr. Patel?</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -249,9 +236,7 @@ export const AboutPage: React.FC = () => {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <GraduationCap className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-h3 mb-2">
-                    Qualified & Experienced
-                  </h3>
+                  <h3 className="text-h3 mb-2">Qualified & Experienced</h3>
                   <p className="text-body-small text-gray-600">
                     BAMS qualified with 15+ years of clinical experience in
                     traditional Ayurvedic medicine
@@ -264,9 +249,7 @@ export const AboutPage: React.FC = () => {
                   <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Heart className="w-8 h-8 text-pink-600" />
                   </div>
-                  <h3 className="text-h3 mb-2">
-                    Personalized Care
-                  </h3>
+                  <h3 className="text-h3 mb-2">Personalized Care</h3>
                   <p className="text-body-small text-gray-600">
                     Every treatment plan is tailored to your unique constitution
                     and health needs
@@ -279,9 +262,7 @@ export const AboutPage: React.FC = () => {
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Users className="w-8 h-8 text-blue-600" />
                   </div>
-                  <h3 className="text-h3 mb-2">
-                    Women's Health Expert
-                  </h3>
+                  <h3 className="text-h3 mb-2">Women's Health Expert</h3>
                   <p className="text-body-small text-gray-600">
                     Specialized expertise in women's health, pregnancy care, and
                     hormonal balance

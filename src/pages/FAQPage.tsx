@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { PageTransition } from "../components/ui/PageTransition";
-import { ChevronDown, ChevronUp, Phone, MessageCircle } from "lucide-react";
+import { ChevronDown, ChevronUp, Phone } from "lucide-react";
 
 export const FAQPage: React.FC = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);
@@ -35,11 +35,12 @@ export const FAQPage: React.FC = () => {
             "Yes, Dr. Niyati Patel holds a BAMS degree (Bachelor of Ayurvedic Medicine and Surgery) and has over 15 years of clinical experience. She is trained in traditional diagnostic methods including pulse diagnosis and constitution analysis, with specialized expertise in women's health and pregnancy care.",
         },
         {
-          question: "How is Ayurvedic treatment different from conventional medicine?",
+          question:
+            "How is Ayurvedic treatment different from conventional medicine?",
           answer:
             "Ayurveda treats the root cause rather than just symptoms, focusing on prevention and holistic wellness. It uses natural remedies, considers your unique constitution, and integrates physical, mental, and spiritual aspects of health. It can complement conventional medicine but works differently by addressing the whole person.",
-        }
-      ]
+        },
+      ],
     },
     {
       category: "Consultations & Appointments",
@@ -58,8 +59,8 @@ export const FAQPage: React.FC = () => {
           question: "How much do consultations cost?",
           answer:
             "Initial consultations are £180 for 90 minutes, and follow-up consultations are £90 for 45 minutes. This includes your personalized treatment plan, dietary recommendations, and herbal medicine prescriptions if needed. Home visits in our primary service areas have no additional travel charges.",
-        }
-      ]
+        },
+      ],
     },
     {
       category: "Treatment & Services",
@@ -78,8 +79,8 @@ export const FAQPage: React.FC = () => {
           question: "How long does it take to see results?",
           answer:
             "Results vary depending on the condition and individual response. Some people notice improvements in energy and digestion within 1-2 weeks, while chronic conditions may take 3-6 months for significant changes. Ayurveda works gradually to create lasting, sustainable health improvements.",
-        }
-      ]
+        },
+      ],
     },
     {
       category: "Pregnancy & Women's Health",
@@ -98,8 +99,8 @@ export const FAQPage: React.FC = () => {
           question: "Can Ayurveda help with hormonal imbalances?",
           answer:
             "Absolutely. Dr. Patel has extensive experience treating hormonal imbalances including PCOS, irregular periods, menopause symptoms, and fertility issues. Ayurvedic treatments work to restore natural hormonal balance through diet, herbs, lifestyle modifications, and stress management techniques.",
-        }
-      ]
+        },
+      ],
     },
     {
       category: "Online Consultations",
@@ -118,9 +119,9 @@ export const FAQPage: React.FC = () => {
           question: "Can I get herbal medicines through online consultations?",
           answer:
             "Yes, Dr. Patel can prescribe herbal medicines during online consultations. She works with reputable suppliers who can ship high-quality Ayurvedic herbs and formulations directly to your address throughout the UK, ensuring you receive the same quality treatments as in-person visits.",
-        }
-      ]
-    }
+        },
+      ],
+    },
   ];
 
   return (
@@ -129,9 +130,7 @@ export const FAQPage: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <div className="text-center mb-16 animate-fadeInDown">
-            <h1 className="text-hero mb-6">
-              Frequently Asked Questions
-            </h1>
+            <h1 className="text-hero mb-6">Frequently Asked Questions</h1>
             <p className="text-body-large text-gray-600 max-w-3xl mx-auto">
               Find answers to common questions about Ayurvedic treatments,
               consultations, and Dr. Niyati Patel's services
@@ -145,12 +144,12 @@ export const FAQPage: React.FC = () => {
                 <h2 className="text-display mb-8 text-center">
                   {category.category}
                 </h2>
-                
+
                 <div className="space-y-4">
                   {category.faqs.map((faq, faqIndex) => {
                     const globalIndex = categoryIndex * 100 + faqIndex;
                     const isOpen = openItems.includes(globalIndex);
-                    
+
                     return (
                       <Card key={faqIndex} className="overflow-hidden">
                         <button
@@ -158,9 +157,7 @@ export const FAQPage: React.FC = () => {
                           className="w-full p-6 text-left hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
                         >
                           <div className="flex justify-between items-center">
-                            <h3 className="text-h3 pr-8">
-                              {faq.question}
-                            </h3>
+                            <h3 className="text-h3 pr-8">{faq.question}</h3>
                             {isOpen ? (
                               <ChevronUp className="w-5 h-5 text-green-600 flex-shrink-0" />
                             ) : (
@@ -168,7 +165,7 @@ export const FAQPage: React.FC = () => {
                             )}
                           </div>
                         </button>
-                        
+
                         {isOpen && (
                           <div className="px-6 pb-6">
                             <p className="text-body text-gray-700 leading-relaxed">
@@ -187,23 +184,28 @@ export const FAQPage: React.FC = () => {
           {/* Contact CTA */}
           <Card className="p-8 mt-16 bg-gradient-to-r from-green-600 to-emerald-600 text-white border-0 animate-fadeInUp">
             <div className="text-center">
-              <h2 className="text-h1 text-white mb-4">
-                Still Have Questions?
-              </h2>
+              <h2 className="text-h1 text-white mb-4">Still Have Questions?</h2>
               <p className="text-body-large text-green-50 mb-8 max-w-2xl mx-auto">
                 Dr. Niyati Patel is happy to answer any specific questions about
                 your health concerns or Ayurvedic treatments
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact" onClick={handleLinkClick}>
-                  <Button size="lg" className="bg-white text-green-600 hover:bg-green-50 text-button-large">
+                  <Button
+                    size="lg"
+                    className="bg-white text-green-600 hover:bg-green-50 text-button-large"
+                  >
                     <Phone className="w-5 h-5 mr-2" />
                     Book Free Discovery Call
                   </Button>
                 </Link>
                 <a href="tel:+447778147840">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-600 text-button-large">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white text-white hover:bg-white hover:text-green-600 text-button-large"
+                  >
                     Call Now: +44 7778 147840
                   </Button>
                 </a>
@@ -213,9 +215,7 @@ export const FAQPage: React.FC = () => {
 
           {/* Popular Topics Quick Links */}
           <div className="mt-12 bg-green-50 rounded-lg p-8 animate-fadeInUp">
-            <h3 className="text-h2 text-center mb-6">
-              Popular Topics
-            </h3>
+            <h3 className="text-h2 text-center mb-6">Popular Topics</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <Link
                 to="/about"

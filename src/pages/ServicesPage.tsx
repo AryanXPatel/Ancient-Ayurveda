@@ -206,7 +206,7 @@ export const ServicesPage: React.FC = () => {
 
           {/* Service Categories */}
           <div className="space-y-16">
-            {serviceCategories.map((category, categoryIndex) => (
+            {serviceCategories.map((category) => (
               <div key={category.id} className="animate-fadeInUp">
                 <div className="text-center mb-12">
                   <div className="flex justify-center mb-4 text-green-600">
