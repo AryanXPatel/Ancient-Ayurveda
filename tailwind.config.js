@@ -53,17 +53,75 @@ export default {
         "5xl": ["3rem", { lineHeight: "1.1" }], // 48px
         "6xl": ["3.75rem", { lineHeight: "1" }], // 60px
 
-        // Ayurveda-specific typography scale
-        hero: ["3.5rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }], // Hero headings
-        display: ["2.5rem", { lineHeight: "1.2", letterSpacing: "-0.01em" }], // Display headings
-        h1: ["2rem", { lineHeight: "1.3" }], // Main headings
-        h2: ["1.5rem", { lineHeight: "1.4" }], // Subheadings
-        h3: ["1.25rem", { lineHeight: "1.5" }], // Section headings
-        "body-lg": ["1.125rem", { lineHeight: "1.7" }], // Large body text
+        // Responsive Ayurveda-specific typography scale
+        hero: [
+          "2rem", // Mobile: 32px
+          {
+            lineHeight: "1.2",
+            letterSpacing: "-0.02em",
+            "@screen sm": "2.5rem", // Tablet: 40px
+            "@screen lg": "3.5rem", // Desktop: 56px
+          },
+        ],
+        display: [
+          "1.75rem", // Mobile: 28px
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            "@screen sm": "2rem", // Tablet: 32px
+            "@screen lg": "2.5rem", // Desktop: 40px
+          },
+        ],
+        h1: [
+          "1.5rem", // Mobile: 24px
+          {
+            lineHeight: "1.3",
+            "@screen sm": "1.75rem", // Tablet: 28px
+            "@screen lg": "2rem", // Desktop: 32px
+          },
+        ],
+        h2: [
+          "1.25rem", // Mobile: 20px
+          {
+            lineHeight: "1.4",
+            "@screen sm": "1.375rem", // Tablet: 22px
+            "@screen lg": "1.5rem", // Desktop: 24px
+          },
+        ],
+        h3: [
+          "1.125rem", // Mobile: 18px
+          {
+            lineHeight: "1.5",
+            "@screen lg": "1.25rem", // Desktop: 20px
+          },
+        ],
+        "body-large": [
+          "1rem", // Mobile: 16px
+          {
+            lineHeight: "1.7",
+            "@screen lg": "1.125rem", // Desktop: 18px
+          },
+        ],
         body: ["1rem", { lineHeight: "1.7" }], // Regular body text
-        "body-sm": ["0.875rem", { lineHeight: "1.6" }], // Small body text
-        quote: ["1.25rem", { lineHeight: "1.6", letterSpacing: "0.01em" }], // Testimonials
+        "body-small": ["0.875rem", { lineHeight: "1.6" }], // Small body text
+        quote: ["1.125rem", { lineHeight: "1.6", letterSpacing: "0.01em" }], // Testimonials
         caption: ["0.75rem", { lineHeight: "1.5" }], // Captions, meta text
+        "button-large": [
+          "1rem", // Mobile: 16px
+          {
+            lineHeight: "1.5",
+            "@screen lg": "1.125rem", // Desktop: 18px
+          },
+        ],
+        button: ["0.875rem", { lineHeight: "1.5" }], // Regular buttons
+        "doctor-name": [
+          "1.125rem", // Mobile: 18px
+          {
+            lineHeight: "1.6",
+            fontWeight: "600",
+            "@screen lg": "1.25rem", // Desktop: 20px
+          },
+        ],
       },
       letterSpacing: {
         tightest: "-0.025em",

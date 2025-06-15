@@ -30,6 +30,53 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Mobile-first responsive typography classes */
+@layer components {
+  .text-hero {
+    @apply text-2xl sm:text-3xl lg:text-5xl font-bold font-heading leading-tight;
+  }
+  
+  .text-display {
+    @apply text-xl sm:text-2xl lg:text-4xl font-bold font-heading leading-tight;
+  }
+  
+  .text-h1 {
+    @apply text-lg sm:text-xl lg:text-2xl font-semibold font-subheading;
+  }
+  
+  .text-h2 {
+    @apply text-base sm:text-lg lg:text-xl font-semibold font-subheading;
+  }
+  
+  .text-h3 {
+    @apply text-sm sm:text-base lg:text-lg font-medium font-subheading;
+  }
+  
+  .text-body-large {
+    @apply text-sm sm:text-base lg:text-lg leading-relaxed font-body;
+  }
+  
+  .text-body {
+    @apply text-sm sm:text-base leading-relaxed font-body;
+  }
+  
+  .text-body-small {
+    @apply text-xs sm:text-sm leading-relaxed font-body;
+  }
+  
+  .text-button-large {
+    @apply text-sm sm:text-base lg:text-lg font-medium;
+  }
+  
+  .text-button {
+    @apply text-xs sm:text-sm lg:text-base font-medium;
+  }
+  
+  .text-doctor-name {
+    @apply text-base sm:text-lg lg:text-xl font-semibold text-green-700 font-subheading;
+  }
+}
+
 /* Smooth page transition effects */
 .page-enter {
   opacity: 0;
@@ -39,21 +86,30 @@ html {
 .page-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  transition: opacity 300ms, transform 300ms;
 }
 
 .page-exit {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .page-exit-active {
   opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 200ms ease-in, transform 200ms ease-in;
+  transition: opacity 300ms;
 }
 
-/* Smooth fade in animation for content */
+/* Loading animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -65,14 +121,25 @@ html {
   }
 }
 
-@keyframes fadeInDown {
+@keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateX(-30px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -85,83 +152,57 @@ html {
   }
 }
 
-.animate-fadeInUp {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
+/* Apply animations */
 .animate-fadeInDown {
   animation: fadeInDown 0.6s ease-out forwards;
 }
 
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.6s ease-out forwards;
+  opacity: 0;
+}
+
 .animate-fadeIn {
-  animation: fadeIn 0.4s ease-out forwards;
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
 }
 
-/* Staggered animations for lists */
-.animate-stagger > *:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.animate-stagger > *:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.animate-stagger > *:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.animate-stagger > *:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.animate-stagger > *:nth-child(5) {
-  animation-delay: 0.5s;
-}
-.animate-stagger > *:nth-child(6) {
-  animation-delay: 0.6s;
+/* Stagger animation for multiple elements */
+.animate-stagger > * {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
-/* Remove all default borders and focus styles */
-a {
-  text-decoration: none !important;
-  border: none !important;
-  outline: none !important;
+.animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+.animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
+.animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
+.animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
+
+/* Button hover effects */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
-a:hover {
-  border: none !important;
+.animate-pulse-gentle {
+  animation: pulse 2s infinite;
 }
 
-a:focus {
-  border: none !important;
-  outline: none !important;
-}
-
-/* Override any default link focus that might add borders */
-a:focus-visible {
-  outline: 2px solid #3b82f6 !important;
-  outline-offset: 2px;
-  border: none !important;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-}
-
-/* Button focus styles */
-button:focus {
-  outline: 2px solid #3b82f6 !important;
-  outline-offset: 2px;
-  border: none !important;
-}
-
-/* Remove any unwanted borders on links */
-.no-border {
-  border: none !important;
-  outline: none !important;
-}
-
-.no-border:hover,
-.no-border:focus,
-.no-border:active {
-  border: none !important;
-  outline: none !important;
-}
-
-/* Enhanced gradient animations */
+/* Gradient background animation */
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -192,11 +233,7 @@ button:focus {
 }
 
 @keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
+  0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
   }
   40% {
@@ -215,7 +252,7 @@ button:focus {
   animation: bounce 2s infinite;
 }
 
-/* Responsive floating buttons */
+/* Responsive floating buttons - Fixed for mobile */
 @media (max-width: 640px) {
   .floating-buttons {
     bottom: 1rem;
@@ -223,9 +260,9 @@ button:focus {
   }
 
   .floating-button {
-    width: 48px;
-    height: 48px;
-    padding: 12px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
   }
 }
 
@@ -236,9 +273,9 @@ button:focus {
   }
 
   .floating-button {
-    width: 56px;
-    height: 56px;
-    padding: 16px;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
   }
 }
 
@@ -250,9 +287,9 @@ button:focus {
   }
 
   .floating-button {
-    width: 44px;
-    height: 44px;
-    padding: 10px;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
   }
 }
 
@@ -296,47 +333,30 @@ button:focus {
   }
 }
 
+/* Mobile touch improvements */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+  
+  .hover\:scale-110:hover {
+    transform: none;
+  }
+  
+  /* Add active states for mobile */
+  .hover\:scale-105:active {
+    transform: scale(0.95);
+  }
+  
+  .hover\:scale-110:active {
+    transform: scale(0.95);
+  }
+}
+
 :root {
   --primary-50: #f0f9f0;
   --primary-500: #2d5016;
   --primary-900: #0f1a08;
   --accent-500: #d4af37;
   --terracotta-500: #cd853f;
-}
-
-@layer base {
-  body {
-    @apply font-sans text-gray-900 bg-white;
-  }
-}
-
-@layer components {
-  .text-display-lg {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    font-weight: 700;
-  }
-  .text-display-md {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    font-weight: 700;
-  }
-  .text-heading-lg {
-    font-size: 2rem;
-    line-height: 1.3;
-    font-weight: 600;
-  }
-  .text-heading-md {
-    font-size: 1.5rem;
-    line-height: 1.4;
-    font-weight: 600;
-  }
-  .text-body-lg {
-    font-size: 1.125rem;
-    line-height: 1.6;
-  }
-  .text-body-md {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
 }
