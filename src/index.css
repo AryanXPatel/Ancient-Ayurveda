@@ -25,9 +25,25 @@
   color: #f0fdf4 !important;
 }
 
-/* Enhanced page transitions */
+/* Enhanced page transitions - Remove conflicting scroll behavior */
 html {
-  scroll-behavior: smooth;
+  /* Remove scroll-behavior to allow custom animations */
+}
+
+/* Remove all focus outlines and borders */
+button:focus,
+button:focus-visible,
+button:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove tap highlight on mobile */
+button {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+  border: none !important;
 }
 
 /* Mobile-first responsive typography classes */
@@ -288,6 +304,16 @@ html {
   .hover\:scale-110:active {
     transform: scale(0.95);
   }
+
+  /* Remove all focus borders on mobile */
+  button:focus,
+  button:active,
+  button:focus-visible {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
 }
 
 :root {
@@ -296,26 +322,6 @@ html {
   --primary-900: #0f1a08;
   --accent-500: #d4af37;
   --terracotta-500: #cd853f;
-}
-
-/* Scroll behavior fixes for mobile */
-html {
-  scroll-behavior: smooth;
-  -webkit-scroll-behavior: smooth;
-}
-
-body {
-  scroll-behavior: smooth;
-  -webkit-scroll-behavior: smooth;
-}
-
-/* Additional mobile scroll fixes */
-@media (max-width: 768px) {
-  html,
-  body {
-    scroll-behavior: auto;
-    -webkit-scroll-behavior: auto;
-  }
 }
 
 /* Ensure no conflicting z-index issues */

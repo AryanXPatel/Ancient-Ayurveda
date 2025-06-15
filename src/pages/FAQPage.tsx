@@ -153,7 +153,14 @@ export const FAQPage: React.FC = () => {
                       <Card key={faqIndex} className="overflow-hidden">
                         <button
                           onClick={() => toggleItem(globalIndex)}
-                          className="w-full p-6 text-left hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
+                          className="w-full p-6 text-left hover:bg-gray-50 transition-colors duration-200"
+                          style={{
+                            outline: 'none',
+                            border: 'none',
+                            boxShadow: 'none',
+                            WebkitTapHighlightColor: 'transparent',
+                          }}
+                          onFocus={(e) => e.target.blur()}
                         >
                           <div className="flex justify-between items-center">
                             <h3 className="text-h3 pr-8">{faq.question}</h3>
