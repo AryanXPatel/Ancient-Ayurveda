@@ -169,16 +169,14 @@ export const HomePage: React.FC = () => {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16 animate-fadeInUp">
-              <h2 className="text-display mb-4">
-                Our Most Popular Services
-              </h2>
+              <h2 className="text-display mb-4">Our Most Popular Services</h2>
               <p className="text-body-large text-gray-600 max-w-2xl mx-auto">
                 Comprehensive Ayurvedic care tailored to your individual needs
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {services.map((service, index) => (
+              {services.map((service) => (
                 <Card
                   key={service.id}
                   className="p-6 text-center card-hover animate-fadeInUp"
@@ -186,14 +184,14 @@ export const HomePage: React.FC = () => {
                   <div className="flex justify-center mb-4 text-green-600">
                     {service.icon}
                   </div>
-                  <h3 className="text-h2 mb-2">
-                    {service.title}
-                  </h3>
+                  <h3 className="text-h2 mb-2">{service.title}</h3>
                   <div className="mb-4">
                     <p className="text-xl font-bold text-green-600 mb-1">
                       {service.price}
                     </p>
-                    <p className="text-body-small text-gray-600">{service.duration}</p>
+                    <p className="text-body-small text-gray-600">
+                      {service.duration}
+                    </p>
                   </div>
                   <ul className="text-left space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
@@ -238,9 +236,7 @@ export const HomePage: React.FC = () => {
             <h2 className="text-h1 mb-4 text-white animate-fadeInDown">
               Ready to Begin Your Wellness Journey?
             </h2>
-            <p
-              className="text-body-large mb-8 text-green-50 animate-fadeIn"
-            >
+            <p className="text-body-large mb-8 text-green-50 animate-fadeIn">
               Join hundreds of satisfied clients across North West London
             </p>
 

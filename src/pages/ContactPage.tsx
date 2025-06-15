@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { PageTransition } from "../components/ui/PageTransition";
@@ -12,17 +11,17 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
+  contactMethod: "phone" | "email" | "whatsapp";
   serviceType: string;
-  preferredDate: string;
-  preferredTime: string;
+  location: "home" | "online";
+  city: string;
+  timePreference: "morning" | "afternoon" | "evening";
   healthConcerns: string;
   referralSource: string;
   questions: string;
-  contactMethod: string;
 }
 
 export const ContactPage: React.FC = () => {
-  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -32,92 +31,52 @@ export const ContactPage: React.FC = () => {
     reset,
   } = useForm<FormData>();
 
-  const handleLinkClick = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  };
-
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
       // EmailJS configuration
       await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        "your_service_id",
+        "your_template_id",
         {
-          to_name: "Dr. Niyati Patel",
-          from_name: data.name,
-          from_email: data.email,
-          phone: data.phone,
-          service_type: data.serviceType,
-          preferred_date: data.preferredDate,
-          preferred_time: data.preferredTime,
-          health_concerns: data.healthConcerns,
-          referral_source: data.referralSource,
-          questions: data.questions,
-          contact_method: data.contactMethod,
-          message: `
-New consultation inquiry from ${data.name}
-
-Contact Details:
-- Email: ${data.email}
-- Phone: ${data.phone}
-- Preferred Contact: ${data.contactMethod}
-
-Service Interest: ${data.serviceType}
-Preferred Date: ${data.preferredDate}
-Preferred Time: ${data.preferredTime}
-
-Health Concerns: ${data.healthConcerns}
-
-Questions: ${data.questions}
-
-How they heard about us: ${data.referralSource}
-          `,
+          ...data,
+          to_email: "info@ancientayurveda.co.uk",
         },
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+        "your_public_key"
       );
 
       toast.success(
-        "Your inquiry has been sent successfully! We'll contact you within 2 hours."
+        "Thank you! Your inquiry has been sent. We'll respond within 2 hours."
       );
       reset();
-
-      // Redirect to thank you page or show success message
-      setTimeout(() => {
-        navigate("/");
-      }, 3000);
     } catch (error) {
-      console.error("Error sending email:", error);
       toast.error(
-        "There was an error sending your inquiry. Please try calling us directly."
+        "Sorry, there was an error sending your message. Please try calling us directly."
       );
-    } finally {
-      setIsSubmitting(false);
+      console.error("EmailJS error:", error);
     }
+    setIsSubmitting(false);
   };
 
   return (
     <PageTransition>
       <div className="min-h-screen py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Hero Section - Clean */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Book Your Ayurvedic Consultation
+          {/* Hero Section */}
+          <div className="text-center mb-16 animate-fadeInDown">
+            <h1 className="text-hero mb-4">
+              Ready to Begin Your Wellness Journey?
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to start your wellness journey? Get in touch to schedule
-              your personalized consultation with Dr. Niyati Patel
+            <p className="text-body-large text-gray-600 max-w-3xl mx-auto">
+              Get in touch to schedule your consultation or ask any questions
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Information - LEFT SIDE */}
-            <div>
+            {/* Contact Information */}
+            <div className="space-y-8 animate-fadeInLeft">
               <Card className="p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  How to Reach Us
-                </h2>
+                <h2 className="text-h1 mb-6">How to Reach Us</h2>
 
                 <div className="space-y-6">
                   <div className="flex items-center">
@@ -126,7 +85,7 @@ How they heard about us: ${data.referralSource}
                       <p className="font-semibold text-gray-900">Phone</p>
                       <a
                         href="tel:+447778147840"
-                        className="text-green-600 hover:text-green-700 hover:scale-105 transition-transform duration-200"
+                        className="text-green-600 hover:text-green-700 text-body-large"
                       >
                         +44 7778 147840
                       </a>
@@ -141,7 +100,7 @@ How they heard about us: ${data.referralSource}
                         href="https://wa.me/447778147840"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-green-600 hover:text-green-700 hover:scale-105 transition-transform duration-200"
+                        className="text-green-600 hover:text-green-700 text-body-large"
                       >
                         +44 7778 147840
                       </a>
@@ -154,7 +113,7 @@ How they heard about us: ${data.referralSource}
                       <p className="font-semibold text-gray-900">Email</p>
                       <a
                         href="mailto:info@ancientayurveda.co.uk"
-                        className="text-green-600 hover:text-green-700 hover:scale-105 transition-transform duration-200"
+                        className="text-green-600 hover:text-green-700 text-body-large"
                       >
                         info@ancientayurveda.co.uk
                       </a>
@@ -167,7 +126,7 @@ How they heard about us: ${data.referralSource}
                       <p className="font-semibold text-gray-900">
                         Response Time
                       </p>
-                      <p className="text-gray-600">
+                      <p className="text-gray-600 text-body">
                         Within 2 hours during business hours
                       </p>
                     </div>
@@ -175,10 +134,10 @@ How they heard about us: ${data.referralSource}
                 </div>
 
                 <div className="mt-8 p-4 bg-green-50 rounded-lg">
-                  <h3 className="font-semibold text-gray-900 mb-2">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-h3">
                     Business Hours
                   </h3>
-                  <div className="text-sm text-gray-600 space-y-1">
+                  <div className="text-body-small text-gray-600 space-y-1">
                     <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
                     <p>Saturday: 9:00 AM - 5:00 PM</p>
                     <p>Sunday: 11:00 AM - 4:00 PM</p>
@@ -189,86 +148,57 @@ How they heard about us: ${data.referralSource}
                 </div>
               </Card>
 
-              {/* Service Areas - Clean */}
+              {/* Service Areas */}
               <Card className="p-8 mt-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                <h2 className="text-h1 mb-6">
                   <MapPin className="w-6 h-6 text-green-600 inline mr-2" />
                   Service Areas
                 </h2>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                    <h3 className="font-semibold text-gray-900 mb-2 text-h3">
                       Primary Service Areas (No Travel Charge)
                     </h3>
-                    <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
+                    <div className="grid grid-cols-2 gap-2 text-body-small text-gray-600">
                       <span>• Neasden</span>
                       <span>• Wembley</span>
                       <span>• Harrow</span>
                       <span>• Kingsbury</span>
                       <span>• Dollis Hill</span>
-                      <span>• Willesden</span>
                       <span>• Cricklewood</span>
-                      <span>• Brent Cross</span>
+                      <span>• Willesden</span>
+                      <span>• Colindale</span>
                     </div>
                   </div>
-
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">
-                      Extended Areas (Small Travel Charge May Apply)
+                    <h3 className="font-semibold text-gray-900 mb-2 text-h3">
+                      Extended Areas (Small Travel Fee May Apply)
                     </h3>
-                    <p className="text-sm text-gray-600">
-                      Edgware, Finchley, Hendon, Mill Hill, Stanmore, and other
-                      North West London areas
-                    </p>
+                    <div className="grid grid-cols-2 gap-2 text-body-small text-gray-600">
+                      <span>• Edgware</span>
+                      <span>• Finchley</span>
+                      <span>• Hendon</span>
+                      <span>• Stanmore</span>
+                      <span>• Mill Hill</span>
+                      <span>• Golders Green</span>
+                    </div>
                   </div>
-
-                  <div className="bg-blue-50 rounded-lg p-4">
-                    <p className="text-sm text-blue-800">
-                      <strong>Online consultations available UK-wide</strong> -
-                      Perfect for follow-ups or if you're outside our travel
-                      area
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <p className="text-body-small text-blue-800">
+                      <strong>Online consultations</strong> are available
+                      anywhere in the UK
                     </p>
                   </div>
                 </div>
               </Card>
-
-              {/* Quick Actions - Clean */}
-              <div className="mt-8 space-y-4">
-                <a href="tel:+447778147840">
-                  <Button
-                    size="lg"
-                    variant="primary"
-                    className="w-full hover:scale-105 transition-transform duration-200"
-                  >
-                    <Phone className="w-5 h-5 mr-2" />
-                    Call Now: +44 7778 147840
-                  </Button>
-                </a>
-                <a
-                  href="https://wa.me/447778147840"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full hover:scale-105 transition-transform duration-200"
-                  >
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    WhatsApp Us
-                  </Button>
-                </a>
-              </div>
             </div>
 
-            {/* Contact Form - RIGHT SIDE */}
-            <div>
+            {/* Contact Form */}
+            <div className="animate-fadeInRight">
               <Card className="p-8">
                 <div className="mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                    Book Your Consultation
-                  </h2>
-                  <p className="text-gray-600">
+                  <h2 className="text-h1 mb-2">Book Your Consultation</h2>
+                  <p className="text-body text-gray-600">
                     Fill out the form below and we'll get back to you within 2
                     hours
                   </p>
@@ -371,48 +301,46 @@ How they heard about us: ${data.referralSource}
                       <option value="detox">Detox Program</option>
                       <option value="package">Wellness Package</option>
                       <option value="online">Online Consultation</option>
-                      <option value="unsure">Not sure yet</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Preferred Date
+                        Preferred Location
                       </label>
-                      <input
-                        {...register("preferredDate")}
-                        type="date"
+                      <select
+                        {...register("location")}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                      />
+                      >
+                        <option value="home">Home Visit</option>
+                        <option value="online">Online Consultation</option>
+                      </select>
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Preferred Time
+                        City/Area
                       </label>
-                      <select
-                        {...register("preferredTime")}
+                      <input
+                        {...register("city")}
+                        type="text"
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                      >
-                        <option value="">Select time preference</option>
-                        <option value="morning">Morning (9am-12pm)</option>
-                        <option value="afternoon">Afternoon (12pm-5pm)</option>
-                        <option value="evening">Evening (5pm-7pm)</option>
-                        <option value="flexible">Flexible</option>
-                      </select>
+                        placeholder="e.g., Neasden, Wembley, Harrow"
+                      />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Health Concerns or Goals
+                      Health Concerns/Goals
                     </label>
                     <textarea
                       {...register("healthConcerns")}
-                      rows={4}
+                      rows={3}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                      placeholder="Tell us about your health goals or concerns..."
+                      placeholder="Brief description of your health goals or concerns..."
                     />
                   </div>
 
@@ -448,7 +376,7 @@ How they heard about us: ${data.referralSource}
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full hover:scale-105 transition-transform duration-200"
+                    className="w-full text-button-large"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Sending..." : "Send Inquiry"}
@@ -456,56 +384,36 @@ How they heard about us: ${data.referralSource}
                 </form>
               </Card>
 
-              {/* What Happens Next - Clean */}
-              <Card className="p-6 mt-8">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  What Happens Next?
-                </h3>
-                <div className="space-y-3 text-sm text-gray-600">
-                  <div className="flex items-start">
-                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                      <span className="text-green-600 font-bold text-xs">
-                        1
-                      </span>
-                    </div>
-                    <p>
-                      <strong>Immediate Confirmation:</strong> You'll receive an
-                      automatic email confirmation of your inquiry.
-                    </p>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                      <span className="text-green-600 font-bold text-xs">
-                        2
-                      </span>
-                    </div>
-                    <p>
-                      <strong>Personal Response (Within 2 hours):</strong> Dr.
-                      Niyati or our team will contact you via your preferred
-                      method.
-                    </p>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                      <span className="text-green-600 font-bold text-xs">
-                        3
-                      </span>
-                    </div>
-                    <p>
-                      <strong>Appointment Confirmation:</strong> You'll receive
-                      detailed appointment information.
-                    </p>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                      <span className="text-green-600 font-bold text-xs">
-                        4
-                      </span>
-                    </div>
-                    <p>
-                      <strong>Pre-Appointment Support:</strong> We'll send
-                      preparation guidelines and any forms to complete.
-                    </p>
+              {/* Quick Action CTA */}
+              <Card className="p-8 bg-gradient-to-r from-green-600 to-emerald-600 text-white border-0 shadow-xl mt-8">
+                <div className="text-center">
+                  <h3 className="text-h2 text-white mb-4">
+                    Prefer to Call Directly?
+                  </h3>
+                  <p className="text-green-50 mb-6 text-body">
+                    Speak directly with Dr. Niyati for immediate assistance
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:+447778147840">
+                      <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg font-medium rounded-lg group bg-gradient-to-br from-green-500 to-emerald-500 group-hover:from-green-500 group-hover:to-emerald-500 hover:text-green-600 focus:ring-4 focus:outline-none focus:ring-green-200 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center">
+                          <Phone className="w-5 h-5 mr-2" />
+                          Call Now: +44 7778 147840
+                        </span>
+                      </button>
+                    </a>
+                    <a
+                      href="https://wa.me/447778147840"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg font-medium rounded-lg group bg-gradient-to-br from-green-500 to-emerald-500 group-hover:from-green-500 group-hover:to-emerald-500 hover:text-green-600 focus:ring-4 focus:outline-none focus:ring-green-200 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <span className="relative px-8 py-4 transition-all ease-in duration-300 bg-transparent text-white rounded-md group-hover:bg-white group-hover:text-green-600 flex items-center">
+                          <MessageCircle className="w-5 h-5 mr-2" />
+                          WhatsApp Us
+                        </span>
+                      </button>
+                    </a>
                   </div>
                 </div>
               </Card>
